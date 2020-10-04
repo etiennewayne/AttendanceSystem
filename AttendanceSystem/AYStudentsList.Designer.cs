@@ -48,10 +48,10 @@
             this.flx.BorderStyle = C1.Win.C1FlexGrid.Util.BaseControls.BorderStyleEnum.FixedSingle;
             this.flx.ColumnInfo = resources.GetString("flx.ColumnInfo");
             this.flx.ExtendLastCol = true;
-            this.flx.Font = new System.Drawing.Font("Arial Unicode MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.flx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.flx.Location = new System.Drawing.Point(15, 68);
             this.flx.Name = "flx";
-            this.flx.Rows.DefaultSize = 23;
+            this.flx.Rows.DefaultSize = 20;
             this.flx.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
             this.flx.Size = new System.Drawing.Size(909, 404);
             this.flx.StyleInfo = resources.GetString("flx.StyleInfo");
