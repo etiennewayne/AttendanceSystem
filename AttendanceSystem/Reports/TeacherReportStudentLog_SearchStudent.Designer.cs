@@ -41,17 +41,17 @@
             this.flx.ColumnInfo = resources.GetString("flx.ColumnInfo");
             this.flx.ExtendLastCol = true;
             this.flx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.flx.Location = new System.Drawing.Point(12, 55);
+            this.flx.Location = new System.Drawing.Point(12, 38);
             this.flx.Name = "flx";
             this.flx.Rows.DefaultSize = 20;
             this.flx.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.flx.Size = new System.Drawing.Size(849, 404);
+            this.flx.Size = new System.Drawing.Size(849, 421);
             this.flx.StyleInfo = resources.GetString("flx.StyleInfo");
             this.flx.TabIndex = 35;
             // 
             // txtsearch
             // 
-            this.txtsearch.Location = new System.Drawing.Point(12, 29);
+            this.txtsearch.Location = new System.Drawing.Point(12, 12);
             this.txtsearch.Name = "txtsearch";
             this.txtsearch.Size = new System.Drawing.Size(251, 20);
             this.txtsearch.TabIndex = 36;

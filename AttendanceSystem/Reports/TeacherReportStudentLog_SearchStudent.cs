@@ -32,7 +32,7 @@ namespace AttendanceSystem.Reports
         {
             con = Connection.con();
             con.Open();
-            query = "select * from student where lname like ?key and fname like ?key and mname like ?key order by lname asc";
+            query = "select * from student where lname like ?key or fname like ?key or mname like ?key order by lname asc";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?key", txtsearch.Text + "%");
             DataTable dt = new DataTable();
@@ -78,6 +78,7 @@ namespace AttendanceSystem.Reports
                 string name = flx[flx.RowSel, "lname"] + ", " + flx[flx.RowSel, "fname"] + " " + flx[flx.RowSel, "mname"];
                 int id = Convert.ToInt32(flx[flx.RowSel, "id"]);
                 _frm.txtStudentName.Text = name;
+                _frm.id = id;
             }
 
             this.Close();
