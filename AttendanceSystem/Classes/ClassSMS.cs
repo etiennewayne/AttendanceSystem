@@ -21,7 +21,7 @@ namespace AttendanceSystem.Classes
 
         public string modemStatus = "";
 
-        private GSMModemTypeConstants s_type = GSMModemTypeConstants.gsmModemCustom; // modem type (see SMSLibX Help)
+        private GSMModemTypeConstants s_type = GSMModemTypeConstants.gsmModemHuawei; // modem type (see SMSLibX Help)
                                                                                      //private short s_port;
                                                                                      //private short s_port = Convert.ToInt16(Properties.Settings.Default.smsPort.Replace("COM", ""));                    // serial COM port number
 

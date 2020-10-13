@@ -214,6 +214,24 @@
     <Compile Include="Reports\TeacherReport.Designer.cs">
       <DependentUpon>TeacherReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\TeacherReportStudentLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\TeacherReportStudentLog.Designer.cs">
+      <DependentUpon>TeacherReportStudentLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\TeacherReportStudentLogRPT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherReportStudentLogRPT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\TeacherReportStudentLog_SearchStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\TeacherReportStudentLog_SearchStudent.Designer.cs">
+      <DependentUpon>TeacherReportStudentLog_SearchStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="RoomAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,6 +421,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\TeacherReport.resx">
       <DependentUpon>TeacherReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TeacherReportStudentLog.resx">
+      <DependentUpon>TeacherReportStudentLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TeacherReportStudentLogRPT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TeacherReportStudentLogRPT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\TeacherReportStudentLog_SearchStudent.resx">
+      <DependentUpon>TeacherReportStudentLog_SearchStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomAdd.resx">
       <DependentUpon>RoomAdd.cs</DependentUpon>

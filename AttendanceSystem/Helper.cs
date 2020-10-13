@@ -259,6 +259,34 @@ namespace AttendanceSystem
         }
 
 
+        public static int getAYID(ComboBox cmb)
+        {
+            int id = 0;
+
+            MySqlConnection con;
+            MySqlCommand cmd;
+            // string query;
+            //cmb.Items.Clear();
+            con = Connection.con();
+            con.Open();
+            cmd = new MySqlCommand("select academicyearID from academicyear where ayCode = ?code", con);
+            cmd.Parameters.AddWithValue("?code", cmb.Text);
+
+            MySqlDataReader dr;
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                id = Convert.ToInt32(dr[0]);
+            }
+            dr.Close();
+            cmd.Dispose();
+            con.Close();
+            con.Dispose();
+
+            return id;
+        }
+
+
 
 
         public static bool isExist(string tblname, string colname, string key)

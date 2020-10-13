@@ -372,7 +372,14 @@ namespace AttendanceSystem
             }
             catch (Exception er)
             {
-                txtModemLogs.AppendText(Environment.NewLine + "System : ERROR :" + er.Message);
+                txtModemLogs.Invoke(new MethodInvoker(delegate
+                {
+                   
+                    txtModemLogs.AppendText(Environment.NewLine + "System : ERROR :" + er.Message);
+                }));
+
+
+               
                // Box.errBox(er.Message//);
 
             }
@@ -445,6 +452,9 @@ namespace AttendanceSystem
                         }));
                         Thread.Sleep(3000);
                     }
+
+                    //sending to parent/guardian
+                    
 
                 }
 
@@ -533,12 +543,13 @@ namespace AttendanceSystem
 
         //}
 
-        
+
 
         List<string> listNo(string pin)
         {
 
             List<string> list = new List<string>();
+
             string pos = "";
             MySqlDataReader dr;
 
@@ -573,6 +584,7 @@ namespace AttendanceSystem
 
             if (pos.ToLower() == "teacher")
             {
+
                 query = "select * from vw_studentlists where pin = ?pin";
                 cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?pin", pin);
@@ -580,6 +592,8 @@ namespace AttendanceSystem
                 while (dr.Read())
                 {
                      list.Add(Convert.ToString(dr["mobileNo"]));
+                    list.Add(Convert.ToString(dr["pMobileNo"]));
+                    //parentMobile.Add(Convert.ToString(dr["pMobileNo"]));
                 }
                 dr.Close();
                 cmd.Dispose();

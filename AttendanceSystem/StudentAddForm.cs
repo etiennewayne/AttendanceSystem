@@ -91,6 +91,13 @@ namespace AttendanceSystem
                 return;
             }
 
+            if (String.IsNullOrEmpty(txtguardian.Text))
+            {
+                Box.warnBox("Please input guardian/parent.");
+                txtguardian.Focus();
+                return;
+            }
+
 
             //if (String.IsNullOrEmpty(cmbGrade.Text) && String.IsNullOrEmpty(cmbProgram.Text))
             //{

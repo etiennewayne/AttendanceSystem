@@ -68,7 +68,25 @@ namespace AttendanceSystem
             frm.ShowDialog();
         }
 
-        private void toolStripReport_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (CheckOpened("TeacherReportStudentLog"))
+            {
+                Application.OpenForms["TeacherReportStudentLog"].BringToFront();
+            }
+            else
+            {
+                TeacherReportStudentLog frm = new TeacherReportStudentLog();
+                frm.Show();
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             if (CheckOpened("TeacherReport"))
             {
@@ -79,11 +97,6 @@ namespace AttendanceSystem
                 TeacherReport frm = new TeacherReport();
                 frm.Show();
             }
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
