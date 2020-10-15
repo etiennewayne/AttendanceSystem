@@ -20,12 +20,27 @@ namespace AttendanceSystem.Reports
 
         TeacherReportStudentLog _frm;
 
+        AdminAttendanceMonitoringForm frm2;
+
+        private int tid;
+
 
         public TeacherReportStudentLog_SearchStudent(TeacherReportStudentLog _frm)
         {
             InitializeComponent();
             this._frm = _frm;
+           
         }
+
+        public TeacherReportStudentLog_SearchStudent(AdminAttendanceMonitoringForm frm2, int tid)
+        {
+            InitializeComponent();
+            this.frm2 = frm2;
+
+            this.tid = tid;
+
+        }
+
 
 
         private void LoadData()
@@ -77,8 +92,19 @@ namespace AttendanceSystem.Reports
             {
                 string name = flx[flx.RowSel, "lname"] + ", " + flx[flx.RowSel, "fname"] + " " + flx[flx.RowSel, "mname"];
                 int id = Convert.ToInt32(flx[flx.RowSel, "id"]);
-                _frm.txtStudentName.Text = name;
-                _frm.id = id;
+
+                if (_frm != null)
+                {
+                    _frm.txtStudentName.Text = name;
+                    _frm.id = id;
+                }
+
+                if (frm2 != null)
+                {
+                    frm2.txtStudentName.Text = name;
+                    frm2.student_id = id;
+                }
+              
             }
 
             this.Close();

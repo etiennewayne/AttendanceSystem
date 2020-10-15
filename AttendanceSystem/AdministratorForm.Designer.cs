@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.lblUser = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.lblTime = new System.Windows.Forms.ToolStripLabel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolStripAccount = new System.Windows.Forms.ToolStripButton();
             this.btnManageStudent = new System.Windows.Forms.ToolStripSplitButton();
             this.btnMenuStudent = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +45,17 @@
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.sendMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBlastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripReport = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.lblUser = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.lblTime = new System.Windows.Forms.ToolStripLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -71,64 +73,13 @@
             this.toolStripButton2,
             this.toolStripButton6,
             this.toolStripSplitButton1,
-            this.toolStripReport,
+            this.toolStripSplitButton3,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1052, 86);
+            this.toolStrip1.Size = new System.Drawing.Size(1219, 86);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
-            this.lblUser,
-            this.toolStripSeparator1,
-            this.toolStripLabel2,
-            this.lblTime});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 542);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1052, 25);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(52, 22);
-            this.toolStripLabel1.Text = "USER :";
-            // 
-            // lblUser
-            // 
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(86, 22);
-            this.lblUser.Text = "toolStripLabel2";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel2
-            // 
-            this.toolStripLabel2.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(50, 22);
-            this.toolStripLabel2.Text = "TIME :";
-            // 
-            // lblTime
-            // 
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(43, 22);
-            this.lblTime.Text = "0:00:00";
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // toolStripAccount
             // 
@@ -158,14 +109,14 @@
             // btnMenuStudent
             // 
             this.btnMenuStudent.Name = "btnMenuStudent";
-            this.btnMenuStudent.Size = new System.Drawing.Size(180, 22);
+            this.btnMenuStudent.Size = new System.Drawing.Size(160, 22);
             this.btnMenuStudent.Text = "Student";
             this.btnMenuStudent.Click += new System.EventHandler(this.btnMenuStudent_Click);
             // 
             // btnMenuValidateStudent
             // 
             this.btnMenuValidateStudent.Name = "btnMenuValidateStudent";
-            this.btnMenuValidateStudent.Size = new System.Drawing.Size(180, 22);
+            this.btnMenuValidateStudent.Size = new System.Drawing.Size(160, 22);
             this.btnMenuValidateStudent.Text = "Validate Student";
             this.btnMenuValidateStudent.Click += new System.EventHandler(this.btnMenuValidateStudent_Click);
             // 
@@ -273,28 +224,17 @@
             // sendMessageToolStripMenuItem
             // 
             this.sendMessageToolStripMenuItem.Name = "sendMessageToolStripMenuItem";
-            this.sendMessageToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.sendMessageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sendMessageToolStripMenuItem.Text = "Setup SMS";
             this.sendMessageToolStripMenuItem.Click += new System.EventHandler(this.sendMessageToolStripMenuItem_Click);
             // 
             // textBlastToolStripMenuItem
             // 
             this.textBlastToolStripMenuItem.Name = "textBlastToolStripMenuItem";
-            this.textBlastToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.textBlastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.textBlastToolStripMenuItem.Text = "Text Blast";
             this.textBlastToolStripMenuItem.Visible = false;
             this.textBlastToolStripMenuItem.Click += new System.EventHandler(this.textBlastToolStripMenuItem_Click);
-            // 
-            // toolStripReport
-            // 
-            this.toolStripReport.Image = global::AttendanceSystem.Properties.Resources.Reports_icon64x64;
-            this.toolStripReport.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripReport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripReport.Name = "toolStripReport";
-            this.toolStripReport.Size = new System.Drawing.Size(68, 83);
-            this.toolStripReport.Text = "Report";
-            this.toolStripReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripReport.Click += new System.EventHandler(this.toolStripReport_Click);
             // 
             // toolStripButton1
             // 
@@ -307,11 +247,90 @@
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.lblUser,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.lblTime});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 542);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(1219, 25);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(52, 22);
+            this.toolStripLabel1.Text = "USER :";
+            // 
+            // lblUser
+            // 
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(86, 22);
+            this.lblUser.Text = "toolStripLabel2";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Bookman Old Style", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(50, 22);
+            this.toolStripLabel2.Text = "TIME :";
+            // 
+            // lblTime
+            // 
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(43, 22);
+            this.lblTime.Text = "0:00:00";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolStripSplitButton3
+            // 
+            this.toolStripSplitButton3.DropDownButtonWidth = 20;
+            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.toolStripSplitButton3.Image = global::AttendanceSystem.Properties.Resources.Reports_icon64x64;
+            this.toolStripSplitButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(89, 83);
+            this.toolStripSplitButton3.Text = "Report";
+            this.toolStripSplitButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem2.Text = "Report 1";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem3.Text = "Attendance Monitoring";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 567);
+            this.ClientSize = new System.Drawing.Size(1219, 567);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -358,6 +377,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel lblTime;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripButton toolStripReport;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }

@@ -133,13 +133,13 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(33, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(34, 22);
             this.toolStripLabel2.Text = "A.Y. :";
             // 
             // lblStripAYCode
             // 
             this.lblStripAYCode.Name = "lblStripAYCode";
-            this.lblStripAYCode.Size = new System.Drawing.Size(65, 22);
+            this.lblStripAYCode.Size = new System.Drawing.Size(66, 22);
             this.lblStripAYCode.Text = "lblAYCODE";
             // 
             // button1

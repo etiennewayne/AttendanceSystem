@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using AttendanceSystem.Classes;
+using AttendanceSystem.Reports;
+
 
 namespace AttendanceSystem
 {
@@ -237,7 +239,12 @@ namespace AttendanceSystem
         private void toolStripReport_Click(object sender, EventArgs e)
         {
            
-         
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+
             if (CheckOpened("ReportsMonitoring"))
             {
                 Application.OpenForms["ReportsMonitoring"].BringToFront();
@@ -248,6 +255,22 @@ namespace AttendanceSystem
                 Reports.ReportsMonitoring frm = new Reports.ReportsMonitoring();
                 frm.Show();
             }
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            if (CheckOpened("AdminAttendanceMonitoringForm"))
+            {
+                Application.OpenForms["AdminAttendanceMonitoringForm"].BringToFront();
+            }
+            else
+            {
+                //SMSMainform frm = new SMSMainform(this);
+                Reports.AdminAttendanceMonitoringForm frm = new Reports.AdminAttendanceMonitoringForm();
+                frm.Show();
+            }
+
+       
         }
 
 
