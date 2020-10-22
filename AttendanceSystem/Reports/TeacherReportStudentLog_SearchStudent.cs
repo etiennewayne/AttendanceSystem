@@ -29,6 +29,8 @@ namespace AttendanceSystem.Reports
         {
             InitializeComponent();
             this._frm = _frm;
+
+            this.tid = Properties.Settings.Default.userID;
            
         }
 
@@ -47,9 +49,11 @@ namespace AttendanceSystem.Reports
         {
             con = Connection.con();
             con.Open();
-            query = "select * from student where lname like ?key or fname like ?key or mname like ?key order by lname asc";
+            query = "proc_studentlist_byteacher";
             cmd = new MySqlCommand(query, con);
-            cmd.Parameters.AddWithValue("?key", txtsearch.Text + "%");
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("?vtid", tid);
+            cmd.Parameters.AddWithValue("?vsearch", txtsearch.Text + "%");
             DataTable dt = new DataTable();
             MySqlDataAdapter adptr = new MySqlDataAdapter(cmd);
             adptr.Fill(dt);
@@ -66,6 +70,8 @@ namespace AttendanceSystem.Reports
 
         private void TeacherReportStudentLog_SearchStudent_Load(object sender, EventArgs e)
         {
+           
+
             try
             {
                 LoadData();
@@ -90,7 +96,7 @@ namespace AttendanceSystem.Reports
         {
             if(this.flx.Rows.Count > 1)
             {
-                string name = flx[flx.RowSel, "lname"] + ", " + flx[flx.RowSel, "fname"] + " " + flx[flx.RowSel, "mname"];
+                string name = flx[flx.RowSel, "stdLname"] + ", " + flx[flx.RowSel, "stdFname"] + " " + flx[flx.RowSel, "stdMname"];
                 int id = Convert.ToInt32(flx[flx.RowSel, "id"]);
 
                 if (_frm != null)

@@ -337,3 +337,5 @@ C:\Users\WAYNE\Desktop\GitHub\AttendanceSystem\AttendanceSystem\obj\x86\Debug\At
 C:\Users\WAYNE\Desktop\GitHub\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.pdb
 C:\Users\WAYNE\Desktop\GitHub\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.AdminAttendanceMonitoringForm.resources
 C:\Users\WAYNE\Desktop\GitHub\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.BrowseTeacherReport.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.AdminAttendanceMonitoringForm.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.BrowseTeacherReport.resources

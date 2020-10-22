@@ -76,6 +76,7 @@
             this.Controls.Add(this.txtsearch);
             this.Controls.Add(this.flx);
             this.Name = "TeacherReportStudentLog_SearchStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TeacherReportStudentLog_SearchStudent";
             this.Load += new System.EventHandler(this.TeacherReportStudentLog_SearchStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.flx)).EndInit();

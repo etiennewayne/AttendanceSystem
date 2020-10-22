@@ -79,7 +79,48 @@ namespace AttendanceSystem.Reports
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                LoadReport();
+            }
+            catch (Exception er)
+            {
+                Box.errBox(er.Message);
+                //throw;
+            }
         }
+
+        //private void LoadReport()
+        //{
+        //    int ayid = Helper.getAYID(cmbAy);
+
+        //    con = Connection.con();
+        //    con.Open();
+
+        //    query = "proc_attendance_student";
+        //    cmd = new MySqlCommand(query, con);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.Parameters.AddWithValue("?vid", id);
+        //    cmd.Parameters.AddWithValue("?vayid", ayid);
+        //    cmd.Parameters.AddWithValue("?vfrom", dtFrom.Value.ToString("yyyy-MM-dd"));
+        //    cmd.Parameters.AddWithValue("?vto", dtTo.Value.ToString("yyyy-MM-dd"));
+
+        //    DataTable dt = new DataTable();
+        //    MySqlDataAdapter adptr = new MySqlDataAdapter(cmd);
+        //    adptr.Fill(dt);
+
+        //    adptr.Dispose();
+        //    cmd.Dispose();
+        //    con.Close();
+
+
+        //    TeacherReportStudentLogRPT rpt = new TeacherReportStudentLogRPT();
+        //    rpt.SetDataSource(dt);
+        //    crystalReportViewer1.ReportSource = rpt;
+
+        //}
+
+
+
     }
 }
