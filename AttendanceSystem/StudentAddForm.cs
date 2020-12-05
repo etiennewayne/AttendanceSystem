@@ -459,6 +459,7 @@ namespace AttendanceSystem
             //  txtyrlvl.Text = "";
             txtguardian.Text = "";
             txtContact.Text = "";
+            txtParentsContact.Text = "";
             picStudent.Image = null;
         }
 

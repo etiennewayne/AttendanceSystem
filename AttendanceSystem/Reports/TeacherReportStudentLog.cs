@@ -15,16 +15,11 @@ namespace AttendanceSystem.Reports
 {
     public partial class TeacherReportStudentLog : Form
     {
-
-
         MySqlConnection con;
         MySqlCommand cmd;
         string query;
 
-
         public int id;
-
-
         
         public TeacherReportStudentLog()
         {
