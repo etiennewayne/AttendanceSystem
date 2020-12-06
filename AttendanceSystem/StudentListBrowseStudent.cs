@@ -37,11 +37,14 @@ namespace AttendanceSystem
         {
             con = Connection.con();
             con.Open();
-            query = "select * from (select * from vw_aystudents where ayCode=?aycode and id not in (select id from studentlists)) as b where lname like ?lname and fname like  ?fname";
+            query = @"select * from (select * from vw_aystudents where ayCode=?aycode and id not in (select id from studentlists)) as b 
+                where lname like ?lname and fname like  ?fname and grade like ?grade and section like ?section";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?aycode", aycode);
             cmd.Parameters.AddWithValue("?lname", txtlname.Text + "%");
             cmd.Parameters.AddWithValue("?fname", txtfname.Text + "%");
+            cmd.Parameters.AddWithValue("?grade", cmbGrade.Text + "%");
+            cmd.Parameters.AddWithValue("?section", cmbSection.Text + "%");
             DataTable dt = new DataTable();
             MySqlDataAdapter adptr = new MySqlDataAdapter(cmd);
             adptr.Fill(dt);
@@ -59,6 +62,12 @@ namespace AttendanceSystem
         {
             try
             {
+                con = Connection.con();
+                con.Open();
+                new ClassGrade().populateComboGrade(con, cmbGrade);
+                con.Close();
+                con.Dispose();
+              
                 LoadData();
             }
             catch (Exception er)
@@ -94,6 +103,23 @@ namespace AttendanceSystem
             else
             {
                 Box.warnBox("No data found.");
+            }
+        }
+
+        private void cmbGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con = Connection.con();
+                con.Open();
+                new ClassSection().populateCombo(con, cmbSection, cmbGrade.Text);
+                con.Close();
+                con.Dispose();
+            }
+            catch (Exception er)
+            {
+
+               // throw;
             }
         }
     }
