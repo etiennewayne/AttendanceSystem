@@ -267,8 +267,10 @@ namespace AttendanceSystem
                                 }
                                 else if (status == "OUT")
                                 {
-                                    bodyMsg = "As of " + timelog + ", " + name + " megawas sa gate!. PLEASE DO NOT REPLY.";
-                                }else if (status == "ABSENT")
+                                    //bodyMsg = "As of " + timelog + ", " + name + " megawas sa gate!. PLEASE DO NOT REPLY.";
+                                    bodyMsg = "Your son/daughter (" + name + ") has went out the school premise @ " + timelog;
+                                }
+                                else if (status == "ABSENT")
                                 {
                                     bodyMsg = "As of " + timelog + ", " + name + " recorded as absent as this day.";
                                 }

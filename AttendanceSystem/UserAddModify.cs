@@ -252,7 +252,7 @@ namespace AttendanceSystem
 
                 if (isExistMobileNo())
                 {
-                    Box.warnBox("Mobile Number already taken. (Ayaw pugsa!)");
+                    Box.warnBox("Mobile Number already taken.");
                     return;
                 }
 

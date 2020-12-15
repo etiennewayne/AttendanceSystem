@@ -45,6 +45,9 @@
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.sendMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBlastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -53,9 +56,6 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblTime = new System.Windows.Forms.ToolStripLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripSplitButton3 = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -109,14 +109,14 @@
             // btnMenuStudent
             // 
             this.btnMenuStudent.Name = "btnMenuStudent";
-            this.btnMenuStudent.Size = new System.Drawing.Size(160, 22);
+            this.btnMenuStudent.Size = new System.Drawing.Size(159, 22);
             this.btnMenuStudent.Text = "Student";
             this.btnMenuStudent.Click += new System.EventHandler(this.btnMenuStudent_Click);
             // 
             // btnMenuValidateStudent
             // 
             this.btnMenuValidateStudent.Name = "btnMenuValidateStudent";
-            this.btnMenuValidateStudent.Size = new System.Drawing.Size(160, 22);
+            this.btnMenuValidateStudent.Size = new System.Drawing.Size(159, 22);
             this.btnMenuValidateStudent.Text = "Validate Student";
             this.btnMenuValidateStudent.Click += new System.EventHandler(this.btnMenuValidateStudent_Click);
             // 
@@ -157,7 +157,7 @@
             this.toolStripAcademicYear.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripAcademicYear.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripAcademicYear.Name = "toolStripAcademicYear";
-            this.toolStripAcademicYear.Size = new System.Drawing.Size(90, 83);
+            this.toolStripAcademicYear.Size = new System.Drawing.Size(89, 83);
             this.toolStripAcademicYear.Text = "Academic Year";
             this.toolStripAcademicYear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripAcademicYear.Click += new System.EventHandler(this.toolStripAcademicYear_Click);
@@ -224,17 +224,45 @@
             // sendMessageToolStripMenuItem
             // 
             this.sendMessageToolStripMenuItem.Name = "sendMessageToolStripMenuItem";
-            this.sendMessageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sendMessageToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.sendMessageToolStripMenuItem.Text = "Setup SMS";
             this.sendMessageToolStripMenuItem.Click += new System.EventHandler(this.sendMessageToolStripMenuItem_Click);
             // 
             // textBlastToolStripMenuItem
             // 
             this.textBlastToolStripMenuItem.Name = "textBlastToolStripMenuItem";
-            this.textBlastToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textBlastToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.textBlastToolStripMenuItem.Text = "Text Blast";
             this.textBlastToolStripMenuItem.Visible = false;
             this.textBlastToolStripMenuItem.Click += new System.EventHandler(this.textBlastToolStripMenuItem_Click);
+            // 
+            // toolStripSplitButton3
+            // 
+            this.toolStripSplitButton3.DropDownButtonWidth = 20;
+            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.toolStripSplitButton3.Image = global::AttendanceSystem.Properties.Resources.Reports_icon64x64;
+            this.toolStripSplitButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
+            this.toolStripSplitButton3.Size = new System.Drawing.Size(89, 83);
+            this.toolStripSplitButton3.Text = "Report";
+            this.toolStripSplitButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem2.Text = "General Report";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 22);
+            this.toolStripMenuItem3.Text = "Attendance Monitoring";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // toolStripButton1
             // 
@@ -297,34 +325,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // toolStripSplitButton3
-            // 
-            this.toolStripSplitButton3.DropDownButtonWidth = 20;
-            this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.toolStripSplitButton3.Image = global::AttendanceSystem.Properties.Resources.Reports_icon64x64;
-            this.toolStripSplitButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton3.Name = "toolStripSplitButton3";
-            this.toolStripSplitButton3.Size = new System.Drawing.Size(89, 83);
-            this.toolStripSplitButton3.Text = "Report";
-            this.toolStripSplitButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(198, 22);
-            this.toolStripMenuItem2.Text = "Report 1";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(198, 22);
-            this.toolStripMenuItem3.Text = "Attendance Monitoring";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // AdministratorForm
             // 
