@@ -56,6 +56,7 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblTime = new System.Windows.Forms.ToolStripLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.setupTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -135,7 +136,8 @@
             // 
             this.toolStripSplitButton2.DropDownButtonWidth = 20;
             this.toolStripSplitButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.setupTeacherToolStripMenuItem});
             this.toolStripSplitButton2.Image = global::AttendanceSystem.Properties.Resources.teacher_icon64x64;
             this.toolStripSplitButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripSplitButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -147,7 +149,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Setup Room";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -326,6 +328,13 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // setupTeacherToolStripMenuItem
+            // 
+            this.setupTeacherToolStripMenuItem.Name = "setupTeacherToolStripMenuItem";
+            this.setupTeacherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setupTeacherToolStripMenuItem.Text = "Setup Teacher";
+            this.setupTeacherToolStripMenuItem.Click += new System.EventHandler(this.setupTeacherToolStripMenuItem_Click);
+            // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -380,5 +389,6 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem setupTeacherToolStripMenuItem;
     }
 }

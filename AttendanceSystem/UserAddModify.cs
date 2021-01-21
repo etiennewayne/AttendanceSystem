@@ -44,10 +44,10 @@ namespace AttendanceSystem
         }
 
         #region CRUD
-        int insert(int posid)
+        int insert()
         {
             int i= 0;
-            query = @"insert into users set username=?uname, pwd=?pwd, pin=?pin, lname=?lname, fname=?fname, mname=?mname, sex=?sex, positionID=?posid, mobileNo=?mobile";
+            query = @"insert into users set username=?uname, pwd=?pwd, pin=?pin, lname=?lname, fname=?fname, mname=?mname, sex=?sex, mobileNo=?mobile, role=?role";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?uname", txtuser.Text.Trim());
             cmd.Parameters.AddWithValue("?pwd", txtpwd.Text.Trim());
@@ -56,8 +56,8 @@ namespace AttendanceSystem
             cmd.Parameters.AddWithValue("?fname", txtFname.Text.Trim());
             cmd.Parameters.AddWithValue("?mname", txtMname.Text.Trim());
             cmd.Parameters.AddWithValue("?sex", cmbSex.Text.Trim());
-            cmd.Parameters.AddWithValue("?posid", posid);
             cmd.Parameters.AddWithValue("?mobile", txtContactNo.Text.Trim());
+            cmd.Parameters.AddWithValue("?role", cmbRole.Text.Trim());
             i = cmd.ExecuteNonQuery();
             id = Helper.returnLastInsertID(con);
             cmd.Dispose();
@@ -75,11 +75,11 @@ namespace AttendanceSystem
             return i;
         }
 
-        int update(int posid)
+        int update()
         {
             int i = 0;
             query = @"update users set username=?uname, pwd=?pwd, pin=?pin, lname=?lname, fname=?fname, 
-                        mname=?mname, sex=?sex, positionID=?posid, mobileNo=?mobile where userID=?id";
+                        mname=?mname, sex=?sex, mobileNo=?mobile, role=?role where userID=?id";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?uname", txtuser.Text.Trim());
             cmd.Parameters.AddWithValue("?pwd", txtpwd.Text.Trim());
@@ -88,8 +88,8 @@ namespace AttendanceSystem
             cmd.Parameters.AddWithValue("?fname", txtFname.Text.Trim());
             cmd.Parameters.AddWithValue("?mname", txtMname.Text.Trim());
             cmd.Parameters.AddWithValue("?sex", cmbSex.Text.Trim());
-            cmd.Parameters.AddWithValue("?posid", posid);
             cmd.Parameters.AddWithValue("?mobile", txtContactNo.Text.Trim());
+            cmd.Parameters.AddWithValue("?role", cmbRole.Text.Trim());
             cmd.Parameters.AddWithValue("?id", id);
             i = cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -101,7 +101,7 @@ namespace AttendanceSystem
         {
             con = Connection.con();
             con.Open();
-            query = "select * from vw_users where userID=?id";
+            query = "select * from users where userID=?id";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?id", id);
             DataTable dt = new DataTable();
@@ -117,7 +117,7 @@ namespace AttendanceSystem
                 temp = txtuser.Text = Convert.ToString(dt.Rows[0]["username"]);
                 txtpwd.Text = Convert.ToString(dt.Rows[0]["pwd"]);
                 tempPIN = txtPIN.Text = Convert.ToString(dt.Rows[0]["pin"]);
-                cmbPosition.Text = Convert.ToString(dt.Rows[0]["position"]);
+                cmbRole.Text = Convert.ToString(dt.Rows[0]["role"]);
                 txtLname.Text = Convert.ToString(dt.Rows[0]["lname"]);
                 txtFname.Text = Convert.ToString(dt.Rows[0]["fname"]);
                 txtMname.Text = Convert.ToString(dt.Rows[0]["mname"]);
@@ -202,10 +202,10 @@ namespace AttendanceSystem
                 return;
             }
 
-            if (String.IsNullOrEmpty(cmbPosition.Text))
+            if (String.IsNullOrEmpty(cmbRole.Text))
             {
                 Box.warnBox("Please select position.");
-                cmbPosition.Focus();
+                cmbRole.Focus();
                 return;
             }
 
@@ -307,13 +307,13 @@ namespace AttendanceSystem
 
         void processSave()
         {
-            int posid = cat.getID(cmbPosition.Text);
+            
 
             if (id > 0)
             {
                 con = Connection.con();
                 con.Open();
-                if (update(posid)>0)
+                if (update()>0)
                 {
                     con.Close();
                     con.Dispose();
@@ -331,7 +331,7 @@ namespace AttendanceSystem
             {
                 con = Connection.con();
                 con.Open();
-                if (insert(posid) > 0)
+                if (insert() > 0)
                 {
                     con.Close();
                     con.Dispose();
@@ -348,7 +348,7 @@ namespace AttendanceSystem
 
         private void UserAddModify_Load(object sender, EventArgs e)
         {
-            cat.allInComboBox(cmbPosition);
+            cat.allInComboBox(cmbRole);
 
           
             if (id > 0)

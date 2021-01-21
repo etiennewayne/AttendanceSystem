@@ -22,6 +22,9 @@ namespace AttendanceSystem
 
         int id;
 
+        ClassGrade cGrade = new ClassGrade();
+        ClassSection cSection = new ClassSection();
+
         RFID rfid = new RFID();
         ClassStudent std = new ClassStudent();
 
@@ -36,6 +39,17 @@ namespace AttendanceSystem
         {
             Helper.LoadCmb("select distinct(ayCode) from academicyear order by ayCode asc", cmbAY);
             cmbAY.Text =  Helper.getActiveAYCode();
+
+
+            con = Connection.con();
+            con.Open();
+            cGrade.populateComboGrade(con, cmbGrade);
+
+            // cProgram.populateCombo(con, cmbProgram);
+            con.Close();
+            con.Close();
+
+
 
 
         }
@@ -54,8 +68,8 @@ namespace AttendanceSystem
                 txtFname.Text = Convert.ToString(dt.Rows[0]["fname"]);
                 txtMname.Text = Convert.ToString(dt.Rows[0]["mname"]);
                 txtSex.Text = Convert.ToString(dt.Rows[0]["sex"]);
-                txtGrade.Text = Convert.ToString(dt.Rows[0]["grade"]);
-                txtSection.Text = Convert.ToString(dt.Rows[0]["section"]);
+                //txtGrade.Text = Convert.ToString(dt.Rows[0]["grade"]);
+                //txtSection.Text = Convert.ToString(dt.Rows[0]["section"]);
             //    txtProgram.Text = Convert.ToString(dt.Rows[0]["progCode"]);
            //     txtDesc.Text = Convert.ToString(dt.Rows[0]["progDesc"]);
                // txtYearlvl.Text = Convert.ToString(dt.Rows[0]["yearlvl"]);
@@ -87,6 +101,9 @@ namespace AttendanceSystem
             //txtYearlvl.Text = "";
             txtguardian.Text = "";
             picStudent.Image = null;
+
+            cmbGrade.Text = "";
+            cmbSection.Text = "";
         }
 
 
@@ -143,6 +160,19 @@ namespace AttendanceSystem
                 Box.warnBox("Already validated.");
                 return;
             }
+
+            if (String.IsNullOrEmpty(cmbGrade.Text))
+            {
+                Box.warnBox("Please select grade level.");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(cmbSection.Text))
+            {
+                Box.warnBox("Please select section level.");
+                return;
+            }
+
             processSave();
         }
 
@@ -153,10 +183,15 @@ namespace AttendanceSystem
 
             int ayid = new ClassAcademicYear().getID(con, cmbAY.Text);
 
-            query = "insert into ay_students set id=?id, academicyearID=?ayid";
+            int gradeID = cGrade.gradeID(con, cmbGrade.Text);
+            int sectionID = cSection.getSectionID(con, cmbSection.Text, cmbGrade.Text);
+
+            query = "insert into ay_students set id=?id, academicyearID=?ayid, gradeID = ?gradeid, sectionID=?sectionid";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?id", id);
             cmd.Parameters.AddWithValue("?ayid", ayid);
+            cmd.Parameters.AddWithValue("?gradeid", gradeID);
+            cmd.Parameters.AddWithValue("?sectionid", sectionID);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             con.Close();
@@ -208,7 +243,16 @@ namespace AttendanceSystem
             }
         }
 
- 
+        private void cmbGrade_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            con = Connection.con();
+            con.Open();
+            cSection.populateCombo(con, cmbSection, cmbGrade.Text);
+            con.Close();
+            con.Dispose();
+        }
+
+
 
         //string get
 

@@ -19,13 +19,13 @@ namespace AttendanceSystem.Classes
             cmb.Items.Clear();
             con= Connection.con();
             con.Open();
-            query = "select * from positions order by position asc";
+            query = "select * from roles order by role asc";
             cmd = new MySqlCommand(query, con);
             MySqlDataReader dr;
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                cmb.Items.Add(Convert.ToString(dr["position"]));
+                cmb.Items.Add(Convert.ToString(dr["role"]));
             }dr.Close();
             con.Close();
             con.Dispose();
@@ -38,14 +38,14 @@ namespace AttendanceSystem.Classes
             int id = 0;
             con = Connection.con();
             con.Open();
-            query = "select * from positions where position=?pos";
+            query = "select * from roles where role=?pos";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?pos", pos);
             MySqlDataReader dr;
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-               id = Convert.ToInt32(dr["positionID"]);
+               id = Convert.ToInt32(dr["role_id"]);
             }
             dr.Close();
             con.Close();

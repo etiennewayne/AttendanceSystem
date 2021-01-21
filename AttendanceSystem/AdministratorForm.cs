@@ -273,6 +273,12 @@ namespace AttendanceSystem
        
         }
 
+        private void setupTeacherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetupTeacherForm frm = new SetupTeacherForm();
+            frm.ShowDialog();
+        }
+
 
         //public void sendMessage(string mobile, string msg)
         //{

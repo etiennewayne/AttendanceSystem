@@ -34,7 +34,7 @@ namespace AttendanceSystem
             bool flag = false;
             con = Connection.con();
             con.Open();
-            query = "select * from vw_users where username=?user and pwd=?pwd";
+            query = "select * from users where username=?user and pwd=?pwd";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?user", txtUsername.Text.Trim());
             cmd.Parameters.AddWithValue("?pwd", txtPwd.Text.Trim());
@@ -47,9 +47,8 @@ namespace AttendanceSystem
                 Properties.Settings.Default.lname = Convert.ToString(dr["lname"]);
                 Properties.Settings.Default.fname = Convert.ToString(dr["fname"]);
                 Properties.Settings.Default.mname = Convert.ToString(dr["mname"]);
-              //  Properties.Settings.Default.position = Convert.ToString(dr["position"]);
-                position = Convert.ToString(dr["position"]);
-                posid = Convert.ToInt32(dr["positionID"]);
+                position = Convert.ToString(dr["role"]);
+              
             }
             dr.Close();
             cmd.Dispose();

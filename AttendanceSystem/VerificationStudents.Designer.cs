@@ -56,6 +56,10 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbSection = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbGrade = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picStudent)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -247,7 +251,7 @@
             // 
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(650, 398);
+            this.btnSave.Location = new System.Drawing.Point(650, 443);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 45;
@@ -259,7 +263,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(13, 398);
+            this.button1.Location = new System.Drawing.Point(13, 443);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 36);
             this.button1.TabIndex = 46;
@@ -271,7 +275,7 @@
             // 
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(174, 398);
+            this.btnClear.Location = new System.Drawing.Point(174, 443);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(67, 36);
             this.btnClear.TabIndex = 47;
@@ -313,13 +317,17 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Green;
-            this.label7.Location = new System.Drawing.Point(3, 379);
+            this.label7.Location = new System.Drawing.Point(3, 418);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(734, 16);
             this.label7.TabIndex = 51;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbSection);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.cmbGrade);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnScan);
             this.groupBox1.Controls.Add(this.txtRFID);
             this.groupBox1.Controls.Add(this.cmbAY);
@@ -343,16 +351,53 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(12, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(401, 328);
+            this.groupBox1.Size = new System.Drawing.Size(401, 371);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
+            // 
+            // cmbSection
+            // 
+            this.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSection.FormattingEnabled = true;
+            this.cmbSection.Location = new System.Drawing.Point(89, 329);
+            this.cmbSection.Name = "cmbSection";
+            this.cmbSection.Size = new System.Drawing.Size(183, 23);
+            this.cmbSection.TabIndex = 51;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(32, 332);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 15);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Section:";
+            // 
+            // cmbGrade
+            // 
+            this.cmbGrade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGrade.FormattingEnabled = true;
+            this.cmbGrade.Location = new System.Drawing.Point(89, 300);
+            this.cmbGrade.Name = "cmbGrade";
+            this.cmbGrade.Size = new System.Drawing.Size(140, 23);
+            this.cmbGrade.TabIndex = 50;
+            this.cmbGrade.SelectedIndexChanged += new System.EventHandler(this.cmbGrade_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(39, 303);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 15);
+            this.label9.TabIndex = 52;
+            this.label9.Text = "Grade:";
             // 
             // VerificationStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 450);
+            this.ClientSize = new System.Drawing.Size(738, 495);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label15);
@@ -405,5 +450,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.ComboBox cmbSection;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.ComboBox cmbGrade;
+        private System.Windows.Forms.Label label9;
     }
 }

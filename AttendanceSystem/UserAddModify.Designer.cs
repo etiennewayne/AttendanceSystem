@@ -33,12 +33,14 @@
             this.txtpwd = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPIN = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.checkShowPwd = new System.Windows.Forms.CheckBox();
             this.txtRPwd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbPosition = new System.Windows.Forms.ComboBox();
+            this.cmbRole = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtContactNo = new System.Windows.Forms.MaskedTextBox();
@@ -55,8 +57,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtPIN = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +105,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.cmbPosition);
+            this.groupBox1.Controls.Add(this.cmbRole);
             this.groupBox1.Controls.Add(this.txtuser);
             this.groupBox1.Controls.Add(this.txtpwd);
             this.groupBox1.Controls.Add(this.label1);
@@ -117,6 +117,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Account Information";
+            // 
+            // txtPIN
+            // 
+            this.txtPIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPIN.Location = new System.Drawing.Point(109, 156);
+            this.txtPIN.Name = "txtPIN";
+            this.txtPIN.Size = new System.Drawing.Size(206, 21);
+            this.txtPIN.TabIndex = 33;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(70, 158);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(33, 15);
+            this.label15.TabIndex = 34;
+            this.label15.Text = "PIN :";
             // 
             // checkShowPwd
             // 
@@ -160,20 +177,20 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 186);
+            this.label3.Location = new System.Drawing.Point(67, 186);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 15);
+            this.label3.Size = new System.Drawing.Size(36, 15);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Position :";
+            this.label3.Text = "Role:";
             // 
-            // cmbPosition
+            // cmbRole
             // 
-            this.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPosition.FormattingEnabled = true;
-            this.cmbPosition.Location = new System.Drawing.Point(109, 183);
-            this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(206, 23);
-            this.cmbPosition.TabIndex = 4;
+            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Location = new System.Drawing.Point(109, 183);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(206, 23);
+            this.cmbRole.TabIndex = 4;
             // 
             // label4
             // 
@@ -353,23 +370,6 @@
             this.label11.Text = "USERS ADD / MODIFY";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtPIN
-            // 
-            this.txtPIN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPIN.Location = new System.Drawing.Point(109, 156);
-            this.txtPIN.Name = "txtPIN";
-            this.txtPIN.Size = new System.Drawing.Size(206, 21);
-            this.txtPIN.TabIndex = 33;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(70, 158);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(33, 15);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "PIN :";
-            // 
             // UserAddModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -405,7 +405,7 @@
         private System.Windows.Forms.TextBox txtpwd;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbPosition;
+        private System.Windows.Forms.ComboBox cmbRole;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;

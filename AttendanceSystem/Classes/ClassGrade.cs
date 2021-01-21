@@ -65,8 +65,8 @@ namespace AttendanceSystem
             }
             dr.Close();
             cmd.Dispose();
-            con.Close();
-            con.Dispose();
+            //con.Close();
+            //con.Dispose();
 
             return id;
         }

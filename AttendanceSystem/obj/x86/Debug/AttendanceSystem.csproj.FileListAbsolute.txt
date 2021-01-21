@@ -233,7 +233,6 @@ C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\At
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.ReportsMonitoring.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.TeacherReport.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.RoomAdd.resources
-C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.RoomBrowseTeachers.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SectionAddModify.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SectionMainform.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SMSBrowsePhonebook.resources
@@ -339,3 +338,7 @@ C:\Users\WAYNE\Desktop\GitHub\AttendanceSystem\AttendanceSystem\obj\x86\Debug\At
 C:\Users\WAYNE\Desktop\GitHub\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.BrowseTeacherReport.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.AdminAttendanceMonitoringForm.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.Reports.BrowseTeacherReport.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacherAddModify.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacherForm.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacher_BrowseRoom.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacher_BrowseTeacher.resources

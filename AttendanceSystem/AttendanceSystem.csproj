@@ -250,12 +250,6 @@
     <Compile Include="RoomAdd.Designer.cs">
       <DependentUpon>RoomAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoomBrowseTeachers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoomBrowseTeachers.Designer.cs">
-      <DependentUpon>RoomBrowseTeachers.cs</DependentUpon>
-    </Compile>
     <Compile Include="SectionAddModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +261,30 @@
     </Compile>
     <Compile Include="SectionMainform.Designer.cs">
       <DependentUpon>SectionMainform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetupTeacherAddModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupTeacherAddModify.Designer.cs">
+      <DependentUpon>SetupTeacherAddModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetupTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupTeacherForm.Designer.cs">
+      <DependentUpon>SetupTeacherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetupTeacher_BrowseRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupTeacher_BrowseRoom.Designer.cs">
+      <DependentUpon>SetupTeacher_BrowseRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetupTeacher_BrowseTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetupTeacher_BrowseTeacher.Designer.cs">
+      <DependentUpon>SetupTeacher_BrowseTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="SMSBrowsePhonebook.cs">
       <SubType>Form</SubType>
@@ -453,14 +471,23 @@
     <EmbeddedResource Include="RoomAdd.resx">
       <DependentUpon>RoomAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RoomBrowseTeachers.resx">
-      <DependentUpon>RoomBrowseTeachers.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SectionAddModify.resx">
       <DependentUpon>SectionAddModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SectionMainform.resx">
       <DependentUpon>SectionMainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupTeacherAddModify.resx">
+      <DependentUpon>SetupTeacherAddModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupTeacherForm.resx">
+      <DependentUpon>SetupTeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupTeacher_BrowseRoom.resx">
+      <DependentUpon>SetupTeacher_BrowseRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetupTeacher_BrowseTeacher.resx">
+      <DependentUpon>SetupTeacher_BrowseTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SMSBrowsePhonebook.resx">
       <DependentUpon>SMSBrowsePhonebook.cs</DependentUpon>

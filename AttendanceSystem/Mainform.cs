@@ -498,7 +498,7 @@ namespace AttendanceSystem
                                     bodyMsg = "Your son/daughter ("+ name + ") has entered school premise @ " + timelog;
                                 }
                                 else if(status == "OUT"){
-                                    bodyMsg = "As of " + timelog + ", " + name + " megawas sa gate!. PLEASE DO NOT REPLY.";
+                                    bodyMsg = "As of " + timelog + ", " + name + " has left the school premise. PLEASE DO NOT REPLY.";
                                 }
 
                                 

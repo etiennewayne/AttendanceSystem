@@ -35,7 +35,7 @@ namespace AttendanceSystem
             {
                 con = Connection.con();
                 con.Open();
-                query = "select * from vw_rooms where roomCode like ?roomcode";
+                query = "select * from rooms where roomCode like ?roomcode";
                 cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?roomcode", "%" + txtCode.Text + "%");
                 DataTable dt = new DataTable();
@@ -124,33 +124,7 @@ namespace AttendanceSystem
             }
         }
 
-        private void studentListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(flx.Rows.Count > 1)
-            {
-                int teacherid = Convert.ToInt32(flx[flx.RowSel, "teacherID"]);
-                if (teacherid > 0)
-                {
-                    StudentListMainform frm = new StudentListMainform();
-                    frm.roomid = Convert.ToInt32(flx[flx.RowSel, "roomID"]);
-                    frm.teacherid = teacherid;
-                    frm.ShowDialog();
-                }
-                else
-                {
-                    Box.warnBox("No teacher found on this room.");
-                }
-            }
-            else
-            {
-                Box.warnBox("No data found.");
-            }
-            
-        }
+       
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            studentListToolStripMenuItem_Click(sender, e);
-        }
     }
 }

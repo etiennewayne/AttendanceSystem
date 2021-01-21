@@ -59,28 +59,7 @@ namespace AttendanceSystem
                 }
             }
 
-            if (!String.IsNullOrEmpty(txtTeacherID.Text))
-            {
-                if (isTeacherExist())
-                {
-                    Box.warnBox("Teacher already assigned in " + assignedRoom);
-                    return;
-                }
-
-            }
-
-            //if (String.IsNullOrEmpty(txtTeacherID.Text))
-            //{
-            //    Box.warnBox("Please select teacher.");
-            //    return;
-            //}
-
-            //if (String.IsNullOrEmpty(txtTeacherID.Text))
-            //{
-            //    Box.warnBox("Please select a teacher.");
-            //    return;
-            //}
-
+          
 
             processSave();
             _frm.LoadData();
@@ -95,12 +74,11 @@ namespace AttendanceSystem
             {
                 con = Connection.con();
                 con.Open();
-                query = "UPDATE rooms SET roomCode=?roomcode, roomDesc=?roomdesc, teacherID=?tid WHERE roomID=?rid";
+                query = "UPDATE rooms SET roomCode=?roomcode, roomDesc=?roomdesc WHERE roomID=?rid";
 
                 cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?roomcode", txtRoomCode.Text.Trim());
                 cmd.Parameters.AddWithValue("?roomdesc", txtRoomDesc.Text.Trim());
-                cmd.Parameters.AddWithValue("?tid", txtTeacherID.Text);
                 cmd.Parameters.AddWithValue("?rid", id);
                 int i = cmd.ExecuteNonQuery();
 
@@ -116,11 +94,10 @@ namespace AttendanceSystem
             {
                 con = Connection.con();
                 con.Open();
-                query = "INSERT INTO rooms SET roomCode=?roomcode, roomDesc=?roomdesc, teacherID=?tid";
+                query = "INSERT INTO rooms SET roomCode=?roomcode, roomDesc=?roomdesc";
                 cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?roomcode", txtRoomCode.Text.Trim());
-                cmd.Parameters.AddWithValue("?roomdesc", txtRoomDesc.Text.Trim());
-                cmd.Parameters.AddWithValue("?tid", txtTeacherID.Text);
+                cmd.Parameters.AddWithValue("?roomdesc", txtRoomDesc.Text.Trim());        
                 int i = cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 con.Close();
@@ -131,11 +108,7 @@ namespace AttendanceSystem
             }
         }
 
-        private void btnBrowse_Click(object sender, EventArgs e)
-        {
-            RoomBrowseTeachers frm = new RoomBrowseTeachers(this);
-            frm.ShowDialog();
-        }
+      
 
         private void RoomAdd_Load(object sender, EventArgs e)
         {
@@ -150,7 +123,7 @@ namespace AttendanceSystem
         {
             con = Connection.con();
             con.Open();
-            query = "select * from vw_rooms where roomID = ?id";
+            query = "select * from rooms where roomID = ?id";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?id", id);
             DataTable dt = new DataTable();
@@ -165,16 +138,7 @@ namespace AttendanceSystem
             {
                 temp = txtRoomCode.Text = Convert.ToString(dt.Rows[0]["roomCode"]);
                 txtRoomDesc.Text = Convert.ToString(dt.Rows[0]["roomDesc"]);
-                if(Convert.ToInt32(dt.Rows[0]["teacherID"]) > 1)
-                {
-                    txtTeacherID.Text = Convert.ToString(dt.Rows[0]["teacherID"]);
-                }
-                
-                string lname = Convert.ToString(dt.Rows[0]["lname"]);
-                string fname = Convert.ToString(dt.Rows[0]["fname"]);
-                string mname = Convert.ToString(dt.Rows[0]["mname"]);
-
-                txtName.Text = Convert.ToString(dt.Rows[0]["fullname"]);
+               
             }
         }
 
@@ -182,7 +146,7 @@ namespace AttendanceSystem
         {
             con = Connection.con();
             con.Open();
-            query = "select * from vw_rooms where roomCode=?roomcode";
+            query = "select * from rooms where roomCode=?roomcode";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?roomcode", txtRoomCode.Text.Trim());
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -195,25 +159,7 @@ namespace AttendanceSystem
             
         }
 
-        bool isTeacherExist()
-        { bool flag = false;
-            con = Connection.con();
-            con.Open();
-            query = "select * from vw_rooms where teacherID=?tid";
-            cmd = new MySqlCommand(query, con);
-            cmd.Parameters.AddWithValue("?tid", txtTeacherID.Text.Trim());
-            MySqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                flag = true;
-                assignedRoom = Convert.ToString(dr["roomCode"]);
-            }
-            dr.Close();
-            cmd.Dispose();
-            con.Close();
-            con.Dispose();
-            return flag;
-        }
+ 
 
     }
 }

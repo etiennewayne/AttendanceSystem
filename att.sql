@@ -53,7 +53,7 @@ CREATE TABLE `attlog` (
   KEY `academicYearID` (`academicyearID`),
   CONSTRAINT `attlog_ibfk_1` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `attlog_ibfk_2` FOREIGN KEY (`academicyearID`) REFERENCES `academicyear` (`academicyearID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=399 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=401 DEFAULT CHARSET=latin1;
 
 /*Data for the table `attlog` */
 
@@ -128,7 +128,9 @@ insert  into `attlog`(`attlogID`,`id`,`datetimeLog`,`remarks`,`timeSent`,`isSent
 (395,57,'2020-12-08 13:21:23','OUT','2020-12-08 11:35:38',1,3),
 (396,57,'2020-12-08 13:21:24','OUT','2020-12-08 11:35:46',1,3),
 (397,57,'2020-12-08 13:21:26','OUT','2020-12-08 11:35:54',1,3),
-(398,57,'2020-12-08 11:34:18','OUT','2020-12-08 11:36:06',1,3);
+(398,57,'2020-12-08 11:34:18','OUT','2020-12-08 11:36:06',1,3),
+(399,48,'2021-01-20 19:01:33','IN',NULL,0,3),
+(400,48,'2021-01-20 19:01:42','IN',NULL,0,3);
 
 /*Table structure for table `ay_students` */
 
@@ -138,71 +140,20 @@ CREATE TABLE `ay_students` (
   `ayStudentID` int(11) NOT NULL AUTO_INCREMENT,
   `id` int(11) DEFAULT NULL,
   `academicyearID` int(11) DEFAULT NULL,
+  `gradeID` int(11) DEFAULT NULL,
+  `sectionID` int(11) DEFAULT NULL,
   `isExempted` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`ayStudentID`),
   KEY `id` (`id`),
   KEY `academicyearID` (`academicyearID`),
   CONSTRAINT `ay_students_ibfk_2` FOREIGN KEY (`academicyearID`) REFERENCES `academicyear` (`academicyearID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ay_students_ibfk_3` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ay_students` */
 
-insert  into `ay_students`(`ayStudentID`,`id`,`academicyearID`,`isExempted`) values 
-(14,52,3,0),
-(16,50,3,0),
-(17,49,3,0),
-(18,48,3,0),
-(19,47,3,0),
-(20,46,3,0),
-(21,45,3,0),
-(22,53,3,0),
-(23,54,3,0),
-(24,55,3,0),
-(25,56,3,0),
-(26,57,3,0);
-
-/*Table structure for table `book_reg` */
-
-DROP TABLE IF EXISTS `book_reg`;
-
-CREATE TABLE `book_reg` (
-  `accessionno` varchar(20) NOT NULL,
-  `booktitle` varchar(20) DEFAULT NULL,
-  `author` varchar(20) DEFAULT NULL,
-  `date_register` varchar(20) DEFAULT NULL,
-  `classificationno` varchar(20) DEFAULT NULL,
-  `category` varchar(20) DEFAULT NULL,
-  `pages` int(10) DEFAULT NULL,
-  `publisher` varchar(20) DEFAULT NULL,
-  `vendor` varchar(20) DEFAULT NULL,
-  `price` int(10) DEFAULT NULL,
-  `remark` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`accessionno`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `book_reg` */
-
-/*Table structure for table `borrower_reg` */
-
-DROP TABLE IF EXISTS `borrower_reg`;
-
-CREATE TABLE `borrower_reg` (
-  `Full_name` varchar(20) DEFAULT NULL,
-  `id` varchar(20) NOT NULL,
-  `department` varchar(20) DEFAULT NULL,
-  `date_ofbirth` varchar(20) DEFAULT NULL,
-  `address` varchar(20) DEFAULT NULL,
-  `mobileno` varchar(15) DEFAULT NULL,
-  `type` varchar(20) DEFAULT NULL,
-  `year` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `borrower_reg` */
-
-insert  into `borrower_reg`(`Full_name`,`id`,`department`,`date_ofbirth`,`address`,`mobileno`,`type`,`year`) values 
-('felmark','179452','ICS','10-15-2020','maloro','+639051978069','Student','1');
+insert  into `ay_students`(`ayStudentID`,`id`,`academicyearID`,`gradeID`,`sectionID`,`isExempted`) values 
+(27,48,3,8,8,0);
 
 /*Table structure for table `category` */
 
@@ -237,43 +188,6 @@ insert  into `grades`(`gradeID`,`grade`) values
 (9,'GRADE 8'),
 (10,'GRADE 9'),
 (11,'GRADE 10');
-
-/*Table structure for table `list_of_bookreturn` */
-
-DROP TABLE IF EXISTS `list_of_bookreturn`;
-
-CREATE TABLE `list_of_bookreturn` (
-  `bookqty` varchar(10) DEFAULT NULL,
-  `bookid` varchar(20) DEFAULT NULL,
-  `Borrowerid` varchar(20) DEFAULT NULL,
-  `Date_issue` varchar(20) DEFAULT NULL,
-  `Date_return` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `list_of_bookreturn` */
-
-insert  into `list_of_bookreturn`(`bookqty`,`bookid`,`Borrowerid`,`Date_issue`,`Date_return`) values 
-('1','132','179452','10-15-2020','10-15-2020'),
-('1','132','179452','10-15-2020','10-15-2020'),
-('1','132','179452','10-15-2020','10-15-2020'),
-('1','132','179452','10-15-2020','10-15-2020');
-
-/*Table structure for table `list_of_borrowed_book` */
-
-DROP TABLE IF EXISTS `list_of_borrowed_book`;
-
-CREATE TABLE `list_of_borrowed_book` (
-  `Borrowerid` varchar(20) DEFAULT NULL,
-  `bookqty` varchar(10) DEFAULT NULL,
-  `bookid` varchar(20) DEFAULT NULL,
-  `date_issue` varchar(20) DEFAULT NULL,
-  `date_return` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `list_of_borrowed_book` */
-
-insert  into `list_of_borrowed_book`(`Borrowerid`,`bookqty`,`bookid`,`date_issue`,`date_return`) values 
-('179452','0','132','10-15-2020','10-17-2020');
 
 /*Table structure for table `msgs` */
 
@@ -314,13 +228,13 @@ CREATE TABLE `phonebook` (
   `fname` varchar(100) DEFAULT '',
   `mname` varchar(100) DEFAULT '',
   `mobileNo` varchar(30) DEFAULT '',
-  `positionID` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`phonebookID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `phonebook` */
 
-insert  into `phonebook`(`phonebookID`,`lname`,`fname`,`mname`,`mobileNo`,`positionID`) values 
+insert  into `phonebook`(`phonebookID`,`lname`,`fname`,`mname`,`mobileNo`,`role_id`) values 
 (13,'FLORIZA','JADE ANN','','+639124349394',1),
 (16,'SANTARITA','JUNREY','','+639106299032',1);
 
@@ -341,24 +255,6 @@ insert  into `port_setting`(`psettingID`,`type`,`port`) values
 (1,'SMS','COM01'),
 (2,'RFID','COM02');
 
-/*Table structure for table `positions` */
-
-DROP TABLE IF EXISTS `positions`;
-
-CREATE TABLE `positions` (
-  `positionID` int(11) NOT NULL AUTO_INCREMENT,
-  `position` varchar(30) DEFAULT '',
-  PRIMARY KEY (`positionID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
-/*Data for the table `positions` */
-
-insert  into `positions`(`positionID`,`position`) values 
-(1,'TEACHER'),
-(2,'STAFF'),
-(3,'ADMINISTRATOR'),
-(4,'PRINCIPAL');
-
 /*Table structure for table `programs` */
 
 DROP TABLE IF EXISTS `programs`;
@@ -377,6 +273,24 @@ insert  into `programs`(`programID`,`progCode`,`progDesc`) values
 (2,'BEED','BACHELOR OF EDUCATION'),
 (3,'BSED-FILL','BACHELOR OF SCIENCE IN EDUCATION MAJOR IN FILIPINO');
 
+/*Table structure for table `roles` */
+
+DROP TABLE IF EXISTS `roles`;
+
+CREATE TABLE `roles` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(30) DEFAULT '',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `roles` */
+
+insert  into `roles`(`role_id`,`role`) values 
+(1,'TEACHER'),
+(2,'STAFF'),
+(3,'ADMINISTRATOR'),
+(4,'PRINCIPAL');
+
 /*Table structure for table `rooms` */
 
 DROP TABLE IF EXISTS `rooms`;
@@ -388,14 +302,28 @@ CREATE TABLE `rooms` (
   `teacherID` int(11) DEFAULT NULL,
   `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`roomID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `rooms` */
 
 insert  into `rooms`(`roomID`,`roomCode`,`roomDesc`,`teacherID`,`userID`) values 
 (9,'ROOM 1','ROOM 1',5,NULL),
 (10,'ROOM 2','ROOM 2',13,NULL),
-(11,'ROOM 5','',17,NULL);
+(11,'ROOM 5','TEST',17,NULL);
+
+/*Table structure for table `rooms_teacher` */
+
+DROP TABLE IF EXISTS `rooms_teacher`;
+
+CREATE TABLE `rooms_teacher` (
+  `room_teacher_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `teacherID` int(11) DEFAULT NULL,
+  `roomID` int(11) DEFAULT NULL,
+  `academicyearID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`room_teacher_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `rooms_teacher` */
 
 /*Table structure for table `sections` */
 
@@ -419,6 +347,20 @@ insert  into `sections`(`sectionID`,`gradeID`,`section`) values
 (11,9,'SECTION MAHOGANY'),
 (12,10,'GUMAMELA'),
 (13,11,'ROSE');
+
+/*Table structure for table `signatory` */
+
+DROP TABLE IF EXISTS `signatory`;
+
+CREATE TABLE `signatory` (
+  `principal` varchar(100) DEFAULT '',
+  `adviser` varchar(100) DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `signatory` */
+
+insert  into `signatory`(`principal`,`adviser`) values 
+('CHELLA MAE DUERME','MARITCHO CABASAG');
 
 /*Table structure for table `student` */
 
@@ -469,45 +411,47 @@ CREATE TABLE `studentlists` (
   `studentlistID` int(11) NOT NULL AUTO_INCREMENT,
   `academicYearID` int(11) DEFAULT NULL,
   `id` int(11) DEFAULT NULL,
+  `student_id` int(11) DEFAULT NULL,
   `roomID` int(11) DEFAULT NULL,
+  `faculty_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`studentlistID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 /*Data for the table `studentlists` */
 
-insert  into `studentlists`(`studentlistID`,`academicYearID`,`id`,`roomID`) values 
-(1,3,22,2),
-(2,1,22,2),
-(3,3,23,2),
-(4,1,24,3),
-(5,3,27,2),
-(6,3,28,2),
-(7,3,29,3),
-(8,3,30,2),
-(9,3,31,3),
-(10,3,35,3),
-(11,3,34,2),
-(12,3,36,2),
-(13,3,42,3),
-(14,3,43,3),
-(15,3,41,2),
-(16,3,40,2),
-(17,3,39,2),
-(18,3,38,2),
-(19,3,37,3),
-(20,3,52,9),
-(21,3,51,9),
-(22,3,50,9),
-(23,3,49,9),
-(24,3,48,10),
-(25,3,47,10),
-(26,3,46,10),
-(27,3,45,10),
-(28,3,54,9),
-(29,3,53,10),
-(30,3,55,10),
-(31,3,56,9),
-(32,3,57,9);
+insert  into `studentlists`(`studentlistID`,`academicYearID`,`id`,`student_id`,`roomID`,`faculty_id`) values 
+(1,3,22,NULL,2,NULL),
+(2,1,22,NULL,2,NULL),
+(3,3,23,NULL,2,NULL),
+(4,1,24,NULL,3,NULL),
+(5,3,27,NULL,2,NULL),
+(6,3,28,NULL,2,NULL),
+(7,3,29,NULL,3,NULL),
+(8,3,30,NULL,2,NULL),
+(9,3,31,NULL,3,NULL),
+(10,3,35,NULL,3,NULL),
+(11,3,34,NULL,2,NULL),
+(12,3,36,NULL,2,NULL),
+(13,3,42,NULL,3,NULL),
+(14,3,43,NULL,3,NULL),
+(15,3,41,NULL,2,NULL),
+(16,3,40,NULL,2,NULL),
+(17,3,39,NULL,2,NULL),
+(18,3,38,NULL,2,NULL),
+(19,3,37,NULL,3,NULL),
+(20,3,52,NULL,9,NULL),
+(21,3,51,NULL,9,NULL),
+(22,3,50,NULL,9,NULL),
+(23,3,49,NULL,9,NULL),
+(24,3,48,NULL,10,NULL),
+(25,3,47,NULL,10,NULL),
+(26,3,46,NULL,10,NULL),
+(27,3,45,NULL,10,NULL),
+(28,3,54,NULL,9,NULL),
+(29,3,53,NULL,10,NULL),
+(30,3,55,NULL,10,NULL),
+(31,3,56,NULL,9,NULL),
+(32,3,57,NULL,9,NULL);
 
 /*Table structure for table `textmessages` */
 
@@ -524,20 +468,6 @@ CREATE TABLE `textmessages` (
 
 /*Data for the table `textmessages` */
 
-/*Table structure for table `user` */
-
-DROP TABLE IF EXISTS `user`;
-
-CREATE TABLE `user` (
-  `username` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `user` */
-
-insert  into `user`(`username`,`password`) values 
-('admin','admin');
-
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -553,17 +483,19 @@ CREATE TABLE `users` (
   `sex` varchar(10) DEFAULT '',
   `positionID` int(11) DEFAULT NULL,
   `mobileNo` varchar(20) DEFAULT '',
+  `role` varchar(30) DEFAULT '',
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 /*Data for the table `users` */
 
-insert  into `users`(`userID`,`username`,`pwd`,`pin`,`lname`,`fname`,`mname`,`sex`,`positionID`,`mobileNo`) values 
-(1,'admin','a','112233','DUERME','CHELLA MAE','RUSIANA','FEMALE',3,'+639773705828'),
-(5,'jrey','a','22334','SANTARITA','JUN REY','','MALE',1,'+639120636272'),
-(15,'janz','a','5566','JANZIEL','BELANO','','FEMALE',2,'+639074893166'),
-(17,'sjade','a','7788','FLORIZA','JADE ANN','','FEMALE',1,'+639558114564'),
-(21,'mergz','a','7894','MAGHANOY','JANE','','FEMALE',1,'+639556556526');
+insert  into `users`(`userID`,`username`,`pwd`,`pin`,`lname`,`fname`,`mname`,`sex`,`positionID`,`mobileNo`,`role`) values 
+(1,'admin','a','112233','DUERME','CHELLA MAE','RUSIANA','FEMALE',3,'+639773705828','ADMINISTRATOR'),
+(5,'jrey','a','22334','SANTARITA','JUN REY','','MALE',1,'+639120636272','TEACHER'),
+(15,'janz','a','5566','JANZIEL','BELANO','','FEMALE',2,'+639074893166','STAFF'),
+(17,'sjade','a','7788','FLORIZA','JADE ANN','','FEMALE',1,'+639558114564','TEACHER'),
+(21,'mergz','a','7894','MAGHANOY','JANE','','FEMALE',1,'+639556556526','TEACHER'),
+(22,'staff','a','0000','STAFF','STAFF','','MALE',NULL,'','STAFF');
 
 /*Table structure for table `wrongpin` */
 
@@ -874,30 +806,9 @@ DROP TABLE IF EXISTS `vw_phonebook`;
  `fname` varchar(100) ,
  `mname` varchar(100) ,
  `mobileNo` varchar(30) ,
- `positionID` int(11) ,
- `position` varchar(30) ,
+ `role_id` int(11) ,
+ `role` varchar(30) ,
  `fullname` varchar(303) 
-)*/;
-
-/*Table structure for table `vw_rooms` */
-
-DROP TABLE IF EXISTS `vw_rooms`;
-
-/*!50001 DROP VIEW IF EXISTS `vw_rooms` */;
-/*!50001 DROP TABLE IF EXISTS `vw_rooms` */;
-
-/*!50001 CREATE TABLE  `vw_rooms`(
- `roomID` int(11) ,
- `roomCode` varchar(150) ,
- `roomDesc` text ,
- `teacherID` int(11) ,
- `lname` varchar(45) ,
- `fname` varchar(45) ,
- `mname` varchar(45) ,
- `mobileNo` varchar(20) ,
- `positionID` int(11) ,
- `position` varchar(30) ,
- `fullname` varchar(138) 
 )*/;
 
 /*Table structure for table `vw_sections` */
@@ -967,30 +878,8 @@ DROP TABLE IF EXISTS `vw_studentlists`;
  `tfname` varchar(45) ,
  `tmname` varchar(45) ,
  `tMobileNo` varchar(20) ,
- `positionID` int(11) ,
- `position` varchar(30) ,
+ `role` varchar(30) ,
  `pMobileNo` varchar(20) 
-)*/;
-
-/*Table structure for table `vw_users` */
-
-DROP TABLE IF EXISTS `vw_users`;
-
-/*!50001 DROP VIEW IF EXISTS `vw_users` */;
-/*!50001 DROP TABLE IF EXISTS `vw_users` */;
-
-/*!50001 CREATE TABLE  `vw_users`(
- `userID` int(11) ,
- `username` varchar(45) ,
- `pwd` varchar(45) ,
- `pin` varchar(30) ,
- `lname` varchar(45) ,
- `fname` varchar(45) ,
- `mname` varchar(45) ,
- `sex` varchar(10) ,
- `positionID` int(11) ,
- `position` varchar(30) ,
- `mobileNo` varchar(20) 
 )*/;
 
 /*View structure for view vw_attlog */
@@ -1019,14 +908,7 @@ DROP TABLE IF EXISTS `vw_users`;
 /*!50001 DROP TABLE IF EXISTS `vw_phonebook` */;
 /*!50001 DROP VIEW IF EXISTS `vw_phonebook` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_phonebook` AS (select `a`.`phonebookID` AS `phonebookID`,`a`.`lname` AS `lname`,`a`.`fname` AS `fname`,`a`.`mname` AS `mname`,`a`.`mobileNo` AS `mobileNo`,`a`.`positionID` AS `positionID`,`b`.`position` AS `position`,concat(`a`.`lname`,', ',`a`.`fname`,' ',`a`.`mname`) AS `fullname` from (`phonebook` `a` join `positions` `b` on(`a`.`positionID` = `b`.`positionID`))) */;
-
-/*View structure for view vw_rooms */
-
-/*!50001 DROP TABLE IF EXISTS `vw_rooms` */;
-/*!50001 DROP VIEW IF EXISTS `vw_rooms` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_rooms` AS (select `a`.`roomID` AS `roomID`,`a`.`roomCode` AS `roomCode`,`a`.`roomDesc` AS `roomDesc`,`a`.`teacherID` AS `teacherID`,`b`.`lname` AS `lname`,`b`.`fname` AS `fname`,`b`.`mname` AS `mname`,`b`.`mobileNo` AS `mobileNo`,`b`.`positionID` AS `positionID`,`c`.`position` AS `position`,concat(`b`.`lname`,', ',`b`.`fname`,' ',`b`.`mname`) AS `fullname` from ((`rooms` `a` left join `users` `b` on(`a`.`teacherID` = `b`.`userID`)) left join `positions` `c` on(`b`.`positionID` = `c`.`positionID`)) order by `a`.`roomCode`) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_phonebook` AS (select `a`.`phonebookID` AS `phonebookID`,`a`.`lname` AS `lname`,`a`.`fname` AS `fname`,`a`.`mname` AS `mname`,`a`.`mobileNo` AS `mobileNo`,`a`.`role_id` AS `role_id`,`b`.`role` AS `role`,concat(`a`.`lname`,', ',`a`.`fname`,' ',`a`.`mname`) AS `fullname` from (`phonebook` `a` join `roles` `b` on(`a`.`role_id` = `b`.`role_id`))) */;
 
 /*View structure for view vw_sections */
 
@@ -1047,14 +929,7 @@ DROP TABLE IF EXISTS `vw_users`;
 /*!50001 DROP TABLE IF EXISTS `vw_studentlists` */;
 /*!50001 DROP VIEW IF EXISTS `vw_studentlists` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_studentlists` AS (select `a`.`studentlistID` AS `studentlistID`,`a`.`id` AS `id`,`c`.`lname` AS `lname`,`c`.`fname` AS `fname`,`c`.`mname` AS `mname`,`c`.`mobileNo` AS `mobileNo`,`b`.`academicyearID` AS `academicyearID`,`b`.`ayCode` AS `ayCode`,`b`.`ayDesc` AS `ayDesc`,`b`.`semester` AS `semester`,`d`.`roomID` AS `roomID`,`d`.`roomCode` AS `roomCode`,`d`.`roomDesc` AS `roomDesc`,`e`.`userID` AS `teacherID`,`e`.`pin` AS `pin`,`e`.`lname` AS `tlname`,`e`.`fname` AS `tfname`,`e`.`mname` AS `tmname`,`e`.`mobileNo` AS `tMobileNo`,`e`.`positionID` AS `positionID`,`f`.`position` AS `position`,`c`.`pMobileNo` AS `pMobileNo` from (((((`studentlists` `a` join `academicyear` `b` on(`a`.`academicYearID` = `b`.`academicyearID`)) join `student` `c` on(`a`.`id` = `c`.`id`)) join `rooms` `d` on(`a`.`roomID` = `d`.`roomID`)) join `users` `e` on(`d`.`teacherID` = `e`.`userID`)) join `positions` `f` on(`e`.`positionID` = `f`.`positionID`))) */;
-
-/*View structure for view vw_users */
-
-/*!50001 DROP TABLE IF EXISTS `vw_users` */;
-/*!50001 DROP VIEW IF EXISTS `vw_users` */;
-
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_users` AS (select `a`.`userID` AS `userID`,`a`.`username` AS `username`,`a`.`pwd` AS `pwd`,`a`.`pin` AS `pin`,`a`.`lname` AS `lname`,`a`.`fname` AS `fname`,`a`.`mname` AS `mname`,`a`.`sex` AS `sex`,`a`.`positionID` AS `positionID`,`b`.`position` AS `position`,`a`.`mobileNo` AS `mobileNo` from (`users` `a` join `positions` `b` on(`a`.`positionID` = `b`.`positionID`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_studentlists` AS (select `a`.`studentlistID` AS `studentlistID`,`a`.`id` AS `id`,`c`.`lname` AS `lname`,`c`.`fname` AS `fname`,`c`.`mname` AS `mname`,`c`.`mobileNo` AS `mobileNo`,`b`.`academicyearID` AS `academicyearID`,`b`.`ayCode` AS `ayCode`,`b`.`ayDesc` AS `ayDesc`,`b`.`semester` AS `semester`,`d`.`roomID` AS `roomID`,`d`.`roomCode` AS `roomCode`,`d`.`roomDesc` AS `roomDesc`,`e`.`userID` AS `teacherID`,`e`.`pin` AS `pin`,`e`.`lname` AS `tlname`,`e`.`fname` AS `tfname`,`e`.`mname` AS `tmname`,`e`.`mobileNo` AS `tMobileNo`,`e`.`role` AS `role`,`c`.`pMobileNo` AS `pMobileNo` from ((((`studentlists` `a` join `academicyear` `b` on(`a`.`academicYearID` = `b`.`academicyearID`)) join `student` `c` on(`a`.`id` = `c`.`id`)) join `rooms` `d` on(`a`.`roomID` = `d`.`roomID`)) join `users` `e` on(`d`.`teacherID` = `e`.`userID`))) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
