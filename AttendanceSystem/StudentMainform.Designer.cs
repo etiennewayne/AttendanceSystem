@@ -98,7 +98,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.Image = global::AttendanceSystem.Properties.Resources.Actions_view_refresh_icon24x24;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(727, 60);
+            this.btnRefresh.Location = new System.Drawing.Point(727, 50);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnRefresh.Size = new System.Drawing.Size(106, 32);

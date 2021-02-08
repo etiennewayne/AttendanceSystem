@@ -34,9 +34,12 @@
             this.btnManageStudent = new System.Windows.Forms.ToolStripSplitButton();
             this.btnMenuStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMenuValidateStudent = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.verifiedStudentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.setupTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.toolStripAcademicYear = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +59,6 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblTime = new System.Windows.Forms.ToolStripLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.setupTeacherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -66,8 +68,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripAccount,
             this.btnManageStudent,
-            this.toolStripButton7,
+            this.toolStripButton5,
             this.toolStripSplitButton2,
+            this.toolStripButton7,
             this.toolStripAcademicYear,
             this.toolStripButton3,
             this.toolStripButton4,
@@ -98,7 +101,8 @@
             this.btnManageStudent.DropDownButtonWidth = 20;
             this.btnManageStudent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnMenuStudent,
-            this.btnMenuValidateStudent});
+            this.btnMenuValidateStudent,
+            this.verifiedStudentsToolStripMenuItem});
             this.btnManageStudent.Image = global::AttendanceSystem.Properties.Resources.Student_id_icon;
             this.btnManageStudent.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnManageStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -110,27 +114,34 @@
             // btnMenuStudent
             // 
             this.btnMenuStudent.Name = "btnMenuStudent";
-            this.btnMenuStudent.Size = new System.Drawing.Size(159, 22);
+            this.btnMenuStudent.Size = new System.Drawing.Size(162, 22);
             this.btnMenuStudent.Text = "Student";
             this.btnMenuStudent.Click += new System.EventHandler(this.btnMenuStudent_Click);
             // 
             // btnMenuValidateStudent
             // 
             this.btnMenuValidateStudent.Name = "btnMenuValidateStudent";
-            this.btnMenuValidateStudent.Size = new System.Drawing.Size(159, 22);
-            this.btnMenuValidateStudent.Text = "Validate Student";
+            this.btnMenuValidateStudent.Size = new System.Drawing.Size(162, 22);
+            this.btnMenuValidateStudent.Text = "Verfiy Student";
             this.btnMenuValidateStudent.Click += new System.EventHandler(this.btnMenuValidateStudent_Click);
             // 
-            // toolStripButton7
+            // verifiedStudentsToolStripMenuItem
             // 
-            this.toolStripButton7.Image = global::AttendanceSystem.Properties.Resources.Phonebook_icon64x64;
-            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(72, 83);
-            this.toolStripButton7.Text = "Phonebook";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            this.verifiedStudentsToolStripMenuItem.Name = "verifiedStudentsToolStripMenuItem";
+            this.verifiedStudentsToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.verifiedStudentsToolStripMenuItem.Text = "Verified Students";
+            this.verifiedStudentsToolStripMenuItem.Click += new System.EventHandler(this.verifiedStudentsToolStripMenuItem_Click);
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Image = global::AttendanceSystem.Properties.Resources.teacher_icon64x64;
+            this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(89, 83);
+            this.toolStripButton5.Text = "Assign Teacher";
+            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click_1);
             // 
             // toolStripSplitButton2
             // 
@@ -149,9 +160,27 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.toolStripMenuItem1.Text = "Setup Room";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // setupTeacherToolStripMenuItem
+            // 
+            this.setupTeacherToolStripMenuItem.Name = "setupTeacherToolStripMenuItem";
+            this.setupTeacherToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.setupTeacherToolStripMenuItem.Text = "Setup Teacher";
+            this.setupTeacherToolStripMenuItem.Click += new System.EventHandler(this.setupTeacherToolStripMenuItem_Click);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Image = global::AttendanceSystem.Properties.Resources.Phonebook_icon64x64;
+            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(72, 83);
+            this.toolStripButton7.Text = "Phonebook";
+            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
             // toolStripAcademicYear
             // 
@@ -328,13 +357,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // setupTeacherToolStripMenuItem
-            // 
-            this.setupTeacherToolStripMenuItem.Name = "setupTeacherToolStripMenuItem";
-            this.setupTeacherToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.setupTeacherToolStripMenuItem.Text = "Setup Teacher";
-            this.setupTeacherToolStripMenuItem.Click += new System.EventHandler(this.setupTeacherToolStripMenuItem_Click);
-            // 
             // AdministratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -348,7 +370,7 @@
             this.MinimizeBox = false;
             this.Name = "AdministratorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Administrator (Attendance Monitoring System) VER 2019.12.30";
+            this.Text = "Administrator (Attendance Monitoring System) VER 2020.02.07";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdministratorForm_FormClosing);
             this.Load += new System.EventHandler(this.AdministratorForm_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -390,5 +412,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem setupTeacherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verifiedStudentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }

@@ -342,3 +342,5 @@ C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\At
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacherForm.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacher_BrowseRoom.resources
 C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.SetupTeacher_BrowseTeacher.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.StudentList_OfTeacher.resources
+C:\Users\eshen\Desktop\Github\AttendanceSystem\AttendanceSystem\obj\x86\Debug\AttendanceSystem.StudentList_OfTeacher_BrowseStudent.resources

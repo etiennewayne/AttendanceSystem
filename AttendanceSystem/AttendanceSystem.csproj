@@ -122,6 +122,7 @@
     <Compile Include="Classes\ClassSection.cs" />
     <Compile Include="Classes\ClassSMS.cs" />
     <Compile Include="Classes\ClassStudentList.cs" />
+    <Compile Include="Classes\ClassTeacher.cs" />
     <Compile Include="Classes\Programs.cs" />
     <Compile Include="Classes\RFID.cs" />
     <Compile Include="Classes\ClassPhonebookTeacher.cs" />
@@ -322,6 +323,18 @@
     <Compile Include="StudentListMainform.Designer.cs">
       <DependentUpon>StudentListMainform.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentList_OfTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentList_OfTeacher.Designer.cs">
+      <DependentUpon>StudentList_OfTeacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentList_OfTeacher_BrowseStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentList_OfTeacher_BrowseStudent.Designer.cs">
+      <DependentUpon>StudentList_OfTeacher_BrowseStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentMainform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -506,6 +519,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentListMainform.resx">
       <DependentUpon>StudentListMainform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentList_OfTeacher.resx">
+      <DependentUpon>StudentList_OfTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentList_OfTeacher_BrowseStudent.resx">
+      <DependentUpon>StudentList_OfTeacher_BrowseStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentMainform.resx">
       <DependentUpon>StudentMainform.cs</DependentUpon>

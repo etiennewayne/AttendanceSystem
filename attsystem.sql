@@ -137,7 +137,7 @@ insert  into `attlog`(`attlogID`,`id`,`datetimeLog`,`remarks`,`timeSent`,`isSent
 DROP TABLE IF EXISTS `ay_students`;
 
 CREATE TABLE `ay_students` (
-  `ayStudentID` int(11) NOT NULL AUTO_INCREMENT,
+  `ayStudentID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id` int(11) DEFAULT NULL,
   `academicyearID` int(11) DEFAULT NULL,
   `gradeID` int(11) DEFAULT NULL,
@@ -146,14 +146,21 @@ CREATE TABLE `ay_students` (
   PRIMARY KEY (`ayStudentID`),
   KEY `id` (`id`),
   KEY `academicyearID` (`academicyearID`),
+  KEY `gradeID` (`gradeID`),
+  KEY `sectionID` (`sectionID`),
   CONSTRAINT `ay_students_ibfk_2` FOREIGN KEY (`academicyearID`) REFERENCES `academicyear` (`academicyearID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `ay_students_ibfk_3` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+  CONSTRAINT `ay_students_ibfk_3` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ay_students_ibfk_4` FOREIGN KEY (`gradeID`) REFERENCES `grades` (`gradeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ay_students_ibfk_5` FOREIGN KEY (`sectionID`) REFERENCES `sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ay_students` */
 
 insert  into `ay_students`(`ayStudentID`,`id`,`academicyearID`,`gradeID`,`sectionID`,`isExempted`) values 
-(27,48,3,8,8,0);
+(27,48,3,8,8,0),
+(28,57,3,8,8,0),
+(30,45,3,8,8,0),
+(31,46,3,9,11,0);
 
 /*Table structure for table `category` */
 
@@ -302,14 +309,16 @@ CREATE TABLE `rooms` (
   `teacherID` int(11) DEFAULT NULL,
   `userID` int(11) DEFAULT NULL,
   PRIMARY KEY (`roomID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 /*Data for the table `rooms` */
 
 insert  into `rooms`(`roomID`,`roomCode`,`roomDesc`,`teacherID`,`userID`) values 
 (9,'ROOM 1','ROOM 1',5,NULL),
 (10,'ROOM 2','ROOM 2',13,NULL),
-(11,'ROOM 5','TEST',17,NULL);
+(11,'ROOM 5','TEST',17,NULL),
+(13,'ROOM 3','',NULL,NULL),
+(14,'ROOM 4','',NULL,NULL);
 
 /*Table structure for table `rooms_teacher` */
 
@@ -320,10 +329,25 @@ CREATE TABLE `rooms_teacher` (
   `teacherID` int(11) DEFAULT NULL,
   `roomID` int(11) DEFAULT NULL,
   `academicyearID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`room_teacher_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `gradeID` int(11) DEFAULT NULL,
+  `sectionID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`room_teacher_id`),
+  KEY `rooms_teacher_ibfk_1` (`academicyearID`),
+  KEY `roomID` (`roomID`),
+  KEY `gradeID` (`gradeID`),
+  KEY `sectionID` (`sectionID`),
+  CONSTRAINT `rooms_teacher_ibfk_1` FOREIGN KEY (`academicyearID`) REFERENCES `academicyear` (`academicyearID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rooms_teacher_ibfk_2` FOREIGN KEY (`roomID`) REFERENCES `rooms` (`roomID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rooms_teacher_ibfk_3` FOREIGN KEY (`gradeID`) REFERENCES `grades` (`gradeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rooms_teacher_ibfk_4` FOREIGN KEY (`sectionID`) REFERENCES `sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Data for the table `rooms_teacher` */
+
+insert  into `rooms_teacher`(`room_teacher_id`,`teacherID`,`roomID`,`academicyearID`,`gradeID`,`sectionID`) values 
+(11,17,9,3,8,8),
+(23,21,10,3,8,9),
+(24,5,11,3,9,11);
 
 /*Table structure for table `sections` */
 
@@ -334,8 +358,7 @@ CREATE TABLE `sections` (
   `gradeID` int(11) DEFAULT NULL,
   `section` varchar(45) DEFAULT '',
   PRIMARY KEY (`sectionID`),
-  KEY `gradeID` (`gradeID`),
-  CONSTRAINT `sections_ibfk_1` FOREIGN KEY (`gradeID`) REFERENCES `grades` (`gradeID`)
+  KEY `gradeID` (`gradeID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sections` */
@@ -414,44 +437,17 @@ CREATE TABLE `studentlists` (
   `student_id` int(11) DEFAULT NULL,
   `roomID` int(11) DEFAULT NULL,
   `faculty_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`studentlistID`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+  `room_teacher_id` int(11) unsigned NOT NULL,
+  `ayStudentID` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`studentlistID`),
+  KEY `room_teacher_id` (`room_teacher_id`),
+  KEY `id` (`id`),
+  KEY `ayStudentID` (`ayStudentID`),
+  CONSTRAINT `studentlists_ibfk_1` FOREIGN KEY (`room_teacher_id`) REFERENCES `rooms_teacher` (`room_teacher_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `studentlists_ibfk_2` FOREIGN KEY (`ayStudentID`) REFERENCES `ay_students` (`ayStudentID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 /*Data for the table `studentlists` */
-
-insert  into `studentlists`(`studentlistID`,`academicYearID`,`id`,`student_id`,`roomID`,`faculty_id`) values 
-(1,3,22,NULL,2,NULL),
-(2,1,22,NULL,2,NULL),
-(3,3,23,NULL,2,NULL),
-(4,1,24,NULL,3,NULL),
-(5,3,27,NULL,2,NULL),
-(6,3,28,NULL,2,NULL),
-(7,3,29,NULL,3,NULL),
-(8,3,30,NULL,2,NULL),
-(9,3,31,NULL,3,NULL),
-(10,3,35,NULL,3,NULL),
-(11,3,34,NULL,2,NULL),
-(12,3,36,NULL,2,NULL),
-(13,3,42,NULL,3,NULL),
-(14,3,43,NULL,3,NULL),
-(15,3,41,NULL,2,NULL),
-(16,3,40,NULL,2,NULL),
-(17,3,39,NULL,2,NULL),
-(18,3,38,NULL,2,NULL),
-(19,3,37,NULL,3,NULL),
-(20,3,52,NULL,9,NULL),
-(21,3,51,NULL,9,NULL),
-(22,3,50,NULL,9,NULL),
-(23,3,49,NULL,9,NULL),
-(24,3,48,NULL,10,NULL),
-(25,3,47,NULL,10,NULL),
-(26,3,46,NULL,10,NULL),
-(27,3,45,NULL,10,NULL),
-(28,3,54,NULL,9,NULL),
-(29,3,53,NULL,10,NULL),
-(30,3,55,NULL,10,NULL),
-(31,3,56,NULL,9,NULL),
-(32,3,57,NULL,9,NULL);
 
 /*Table structure for table `textmessages` */
 
@@ -623,35 +619,62 @@ FROM `attlog` `a`
     END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `proc_new_studentlist` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `proc_new_studentlist` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_new_studentlist`(vaycode varchar(20), vgrade varchar(50), vsection varchar(50))
+BEGIN
+    
+    SELECT 
+a.ayStudentID, a.id, b.rfid, b.studentID, b.lname, b.fname, b.mname, b.sex, b.mobileNo,
+b.pMobileNo,
+a.gradeID, d.grade,
+a.sectionID, e.section,
+a.academicyearID, c.ayCode, c.ayDesc
+FROM
+ay_students a JOIN student b ON a.id = b.id
+JOIN academicyear c ON a.academicyearID = c.academicyearID
+JOIN grades d ON a.gradeID = d.gradeID
+JOIN sections e ON a.sectionID = e.sectionID
+where d.grade = vgrade and e.section = vsection
+and c.ayCOde = vaycode;
+    END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `proc_studentlist_byteacher` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `proc_studentlist_byteacher` */;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_studentlist_byteacher`(vtid int, vsearch varchar(50))
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_studentlist_byteacher`(vtid int, vaycode varchar(50), vsearch varchar(50))
 BEGIN
 select * from ( 
-SELECT
-a.`studentlistID`, a.`academicYearID`, a.`id`,
-c.rfid,
-c.studentID,
-c.lrn,
-c.`lname` AS stdLname,
-c.`fname` AS stdFname,
-c.`mname` AS stdMname, c.sex as stdSex, c.gradeID,
-(select grade from grades where grades.gradeID = c.gradeID) as grade,
-b.`roomID`,
-b.`roomCode`, b.`roomDesc`, b.`teacherID`,
-d.lname AS tLname,
-d.fname AS tFname,
-d.mname AS tMname
-FROM `studentlists` a
-JOIN rooms b ON a.`roomID` = b.`roomID`
-JOIN student c ON a.`id` = c.`id`
-JOIN users d ON b.`teacherID` = d.userID
-where b.teacherID = vtid) as tbl1 where stdLname like concat(vsearch, '%')
-or stdFname like concat(vsearch, '%') or stdMname like concat(vsearch, '%');
+SELECT 
+a.ayStudentID, a.id, b.rfid, b.studentID, b.lname, b.fname, b.mname, b.sex, b.mobileNo,
+b.pMobileNo,
+a.gradeID, d.grade,
+a.sectionID, e.section,
+a.academicyearID, c.ayCode, c.ayDesc,
+users.userID AS 'teacher_id',
+users.lname AS  't_lname',
+users.fname AS 't_fname',
+users.mname AS 't_mname',
+users.pin AS 'pin',
+users.mobileNo AS 't_mobileno'
+FROM
+ay_students a JOIN student b ON a.id = b.id
+JOIN academicyear c ON a.academicyearID = c.academicyearID
+JOIN grades d ON a.gradeID = d.gradeID
+JOIN sections e ON a.sectionID = e.sectionID
+JOIN rooms_teacher ON rooms_teacher.gradeID = a.gradeID AND rooms_teacher.sectionID = a.sectionID
+JOIN users ON rooms_teacher.teacherID = users.userID
+where users.userID = vtid and c.ayCode=vaycode
+) as tbl1 where lname like concat(vsearch, '%')
+or fname like concat(vsearch, '%') or mname like concat(vsearch, '%');
     END */$$
 DELIMITER ;
 
@@ -747,7 +770,7 @@ DROP TABLE IF EXISTS `vw_aystudents`;
 /*!50001 DROP TABLE IF EXISTS `vw_aystudents` */;
 
 /*!50001 CREATE TABLE  `vw_aystudents`(
- `ayStudentID` int(11) ,
+ `ayStudentID` int(11) unsigned ,
  `academicyearID` int(11) ,
  `id` int(11) ,
  `rfid` varchar(15) ,
@@ -757,10 +780,10 @@ DROP TABLE IF EXISTS `vw_aystudents`;
  `fname` varchar(50) ,
  `mname` varchar(50) ,
  `sex` varchar(6) ,
- `gradeID` int(11) ,
- `sectionID` int(11) ,
  `mobileNo` varchar(20) ,
+ `gradeID` int(11) ,
  `grade` varchar(30) ,
+ `sectionID` int(11) ,
  `section` varchar(45) ,
  `img` longblob ,
  `ayCode` varchar(20) ,
@@ -777,7 +800,7 @@ DROP TABLE IF EXISTS `vw_noattendance`;
 /*!50001 DROP TABLE IF EXISTS `vw_noattendance` */;
 
 /*!50001 CREATE TABLE  `vw_noattendance`(
- `ayStudentID` int(11) ,
+ `ayStudentID` int(11) unsigned ,
  `academicyearID` int(11) ,
  `id` int(11) ,
  `rfid` varchar(15) ,
@@ -809,6 +832,31 @@ DROP TABLE IF EXISTS `vw_phonebook`;
  `role_id` int(11) ,
  `role` varchar(30) ,
  `fullname` varchar(303) 
+)*/;
+
+/*Table structure for table `vw_rooms_teacher` */
+
+DROP TABLE IF EXISTS `vw_rooms_teacher`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_rooms_teacher` */;
+/*!50001 DROP TABLE IF EXISTS `vw_rooms_teacher` */;
+
+/*!50001 CREATE TABLE  `vw_rooms_teacher`(
+ `room_teacher_id` int(10) unsigned ,
+ `roomID` int(11) ,
+ `roomCode` varchar(150) ,
+ `roomDesc` text ,
+ `teacherID` int(11) ,
+ `tlname` varchar(45) ,
+ `tfname` varchar(45) ,
+ `tmname` varchar(45) ,
+ `academicyearID` int(11) ,
+ `ayCode` varchar(20) ,
+ `ayDesc` varchar(100) ,
+ `gradeID` int(11) ,
+ `grade` varchar(30) ,
+ `sectionID` int(11) ,
+ `section` varchar(45) 
 )*/;
 
 /*Table structure for table `vw_sections` */
@@ -882,6 +930,72 @@ DROP TABLE IF EXISTS `vw_studentlists`;
  `pMobileNo` varchar(20) 
 )*/;
 
+/*Table structure for table `vw_studentlist_teacher` */
+
+DROP TABLE IF EXISTS `vw_studentlist_teacher`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_studentlist_teacher` */;
+/*!50001 DROP TABLE IF EXISTS `vw_studentlist_teacher` */;
+
+/*!50001 CREATE TABLE  `vw_studentlist_teacher`(
+ `ayStudentID` int(11) unsigned ,
+ `id` int(11) ,
+ `rfid` varchar(15) ,
+ `studentID` varchar(15) ,
+ `lname` varchar(50) ,
+ `fname` varchar(50) ,
+ `mname` varchar(50) ,
+ `sex` varchar(6) ,
+ `mobileNo` varchar(20) ,
+ `pMobileNo` varchar(20) ,
+ `gradeID` int(11) ,
+ `grade` varchar(30) ,
+ `sectionID` int(11) ,
+ `section` varchar(45) ,
+ `academicyearID` int(11) ,
+ `ayCode` varchar(20) ,
+ `ayDesc` varchar(100) ,
+ `teacher_id` int(11) ,
+ `t_lname` varchar(45) ,
+ `t_fname` varchar(45) ,
+ `t_mname` varchar(45) ,
+ `pin` varchar(30) ,
+ `t_mobileno` varchar(20) 
+)*/;
+
+/*Table structure for table `vw_students_by_teacher` */
+
+DROP TABLE IF EXISTS `vw_students_by_teacher`;
+
+/*!50001 DROP VIEW IF EXISTS `vw_students_by_teacher` */;
+/*!50001 DROP TABLE IF EXISTS `vw_students_by_teacher` */;
+
+/*!50001 CREATE TABLE  `vw_students_by_teacher`(
+ `ayStudentID` int(11) unsigned ,
+ `id` int(11) ,
+ `rfid` varchar(15) ,
+ `studentID` varchar(15) ,
+ `lname` varchar(50) ,
+ `fname` varchar(50) ,
+ `mname` varchar(50) ,
+ `sex` varchar(6) ,
+ `mobileNo` varchar(20) ,
+ `pMobileNo` varchar(20) ,
+ `gradeID` int(11) ,
+ `grade` varchar(30) ,
+ `sectionID` int(11) ,
+ `section` varchar(45) ,
+ `academicyearID` int(11) ,
+ `ayCode` varchar(20) ,
+ `ayDesc` varchar(100) ,
+ `teacher_id` int(11) ,
+ `t_lname` varchar(45) ,
+ `t_fname` varchar(45) ,
+ `t_mname` varchar(45) ,
+ `pin` varchar(30) ,
+ `t_mobileno` varchar(20) 
+)*/;
+
 /*View structure for view vw_attlog */
 
 /*!50001 DROP TABLE IF EXISTS `vw_attlog` */;
@@ -894,7 +1008,7 @@ DROP TABLE IF EXISTS `vw_studentlists`;
 /*!50001 DROP TABLE IF EXISTS `vw_aystudents` */;
 /*!50001 DROP VIEW IF EXISTS `vw_aystudents` */;
 
-/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_aystudents` AS (select `a`.`ayStudentID` AS `ayStudentID`,`a`.`academicyearID` AS `academicyearID`,`b`.`id` AS `id`,`b`.`rfid` AS `rfid`,`b`.`studentID` AS `studentID`,`b`.`lrn` AS `lrn`,`b`.`lname` AS `lname`,`b`.`fname` AS `fname`,`b`.`mname` AS `mname`,`b`.`sex` AS `sex`,`b`.`gradeID` AS `gradeID`,`b`.`sectionID` AS `sectionID`,`b`.`mobileNo` AS `mobileNo`,`b`.`grade` AS `grade`,`b`.`section` AS `section`,`b`.`img` AS `img`,`c`.`ayCode` AS `ayCode`,`c`.`ayDesc` AS `ayDesc`,`c`.`semester` AS `semester`,`c`.`active` AS `active` from ((`ay_students` `a` join `vw_student` `b` on(`a`.`id` = `b`.`id`)) join `academicyear` `c` on(`a`.`academicyearID` = `c`.`academicyearID`))) */;
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_aystudents` AS (select `a`.`ayStudentID` AS `ayStudentID`,`a`.`academicyearID` AS `academicyearID`,`b`.`id` AS `id`,`b`.`rfid` AS `rfid`,`b`.`studentID` AS `studentID`,`b`.`lrn` AS `lrn`,`b`.`lname` AS `lname`,`b`.`fname` AS `fname`,`b`.`mname` AS `mname`,`b`.`sex` AS `sex`,`b`.`mobileNo` AS `mobileNo`,`a`.`gradeID` AS `gradeID`,`grades`.`grade` AS `grade`,`a`.`sectionID` AS `sectionID`,`sections`.`section` AS `section`,`b`.`img` AS `img`,`c`.`ayCode` AS `ayCode`,`c`.`ayDesc` AS `ayDesc`,`c`.`semester` AS `semester`,`c`.`active` AS `active` from ((((`ay_students` `a` join `vw_student` `b` on(`a`.`id` = `b`.`id`)) join `academicyear` `c` on(`a`.`academicyearID` = `c`.`academicyearID`)) join `grades` on(`a`.`gradeID` = `grades`.`gradeID`)) join `sections` on(`a`.`sectionID` = `sections`.`sectionID`))) */;
 
 /*View structure for view vw_noattendance */
 
@@ -909,6 +1023,13 @@ DROP TABLE IF EXISTS `vw_studentlists`;
 /*!50001 DROP VIEW IF EXISTS `vw_phonebook` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_phonebook` AS (select `a`.`phonebookID` AS `phonebookID`,`a`.`lname` AS `lname`,`a`.`fname` AS `fname`,`a`.`mname` AS `mname`,`a`.`mobileNo` AS `mobileNo`,`a`.`role_id` AS `role_id`,`b`.`role` AS `role`,concat(`a`.`lname`,', ',`a`.`fname`,' ',`a`.`mname`) AS `fullname` from (`phonebook` `a` join `roles` `b` on(`a`.`role_id` = `b`.`role_id`))) */;
+
+/*View structure for view vw_rooms_teacher */
+
+/*!50001 DROP TABLE IF EXISTS `vw_rooms_teacher` */;
+/*!50001 DROP VIEW IF EXISTS `vw_rooms_teacher` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_rooms_teacher` AS (select `a`.`room_teacher_id` AS `room_teacher_id`,`a`.`roomID` AS `roomID`,`b`.`roomCode` AS `roomCode`,`b`.`roomDesc` AS `roomDesc`,`a`.`teacherID` AS `teacherID`,`c`.`lname` AS `tlname`,`c`.`fname` AS `tfname`,`c`.`mname` AS `tmname`,`a`.`academicyearID` AS `academicyearID`,`d`.`ayCode` AS `ayCode`,`d`.`ayDesc` AS `ayDesc`,`grades`.`gradeID` AS `gradeID`,`grades`.`grade` AS `grade`,`sections`.`sectionID` AS `sectionID`,`sections`.`section` AS `section` from (((((`rooms_teacher` `a` join `rooms` `b` on(`a`.`roomID` = `b`.`roomID`)) join `users` `c` on(`a`.`teacherID` = `c`.`userID`)) join `academicyear` `d` on(`a`.`academicyearID` = `d`.`academicyearID`)) join `grades` on(`a`.`gradeID` = `grades`.`gradeID`)) join `sections` on(`a`.`sectionID` = `sections`.`sectionID`))) */;
 
 /*View structure for view vw_sections */
 
@@ -930,6 +1051,20 @@ DROP TABLE IF EXISTS `vw_studentlists`;
 /*!50001 DROP VIEW IF EXISTS `vw_studentlists` */;
 
 /*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_studentlists` AS (select `a`.`studentlistID` AS `studentlistID`,`a`.`id` AS `id`,`c`.`lname` AS `lname`,`c`.`fname` AS `fname`,`c`.`mname` AS `mname`,`c`.`mobileNo` AS `mobileNo`,`b`.`academicyearID` AS `academicyearID`,`b`.`ayCode` AS `ayCode`,`b`.`ayDesc` AS `ayDesc`,`b`.`semester` AS `semester`,`d`.`roomID` AS `roomID`,`d`.`roomCode` AS `roomCode`,`d`.`roomDesc` AS `roomDesc`,`e`.`userID` AS `teacherID`,`e`.`pin` AS `pin`,`e`.`lname` AS `tlname`,`e`.`fname` AS `tfname`,`e`.`mname` AS `tmname`,`e`.`mobileNo` AS `tMobileNo`,`e`.`role` AS `role`,`c`.`pMobileNo` AS `pMobileNo` from ((((`studentlists` `a` join `academicyear` `b` on(`a`.`academicYearID` = `b`.`academicyearID`)) join `student` `c` on(`a`.`id` = `c`.`id`)) join `rooms` `d` on(`a`.`roomID` = `d`.`roomID`)) join `users` `e` on(`d`.`teacherID` = `e`.`userID`))) */;
+
+/*View structure for view vw_studentlist_teacher */
+
+/*!50001 DROP TABLE IF EXISTS `vw_studentlist_teacher` */;
+/*!50001 DROP VIEW IF EXISTS `vw_studentlist_teacher` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`%` SQL SECURITY DEFINER VIEW `vw_studentlist_teacher` AS (select `a`.`ayStudentID` AS `ayStudentID`,`a`.`id` AS `id`,`b`.`rfid` AS `rfid`,`b`.`studentID` AS `studentID`,`b`.`lname` AS `lname`,`b`.`fname` AS `fname`,`b`.`mname` AS `mname`,`b`.`sex` AS `sex`,`b`.`mobileNo` AS `mobileNo`,`b`.`pMobileNo` AS `pMobileNo`,`a`.`gradeID` AS `gradeID`,`d`.`grade` AS `grade`,`a`.`sectionID` AS `sectionID`,`e`.`section` AS `section`,`a`.`academicyearID` AS `academicyearID`,`c`.`ayCode` AS `ayCode`,`c`.`ayDesc` AS `ayDesc`,`users`.`userID` AS `teacher_id`,`users`.`lname` AS `t_lname`,`users`.`fname` AS `t_fname`,`users`.`mname` AS `t_mname`,`users`.`pin` AS `pin`,`users`.`mobileNo` AS `t_mobileno` from ((((((`ay_students` `a` join `student` `b` on(`a`.`id` = `b`.`id`)) join `academicyear` `c` on(`a`.`academicyearID` = `c`.`academicyearID`)) join `grades` `d` on(`a`.`gradeID` = `d`.`gradeID`)) join `sections` `e` on(`a`.`sectionID` = `e`.`sectionID`)) join `rooms_teacher` on(`rooms_teacher`.`gradeID` = `a`.`gradeID` and `rooms_teacher`.`sectionID` = `a`.`sectionID`)) join `users` on(`rooms_teacher`.`teacherID` = `users`.`userID`))) */;
+
+/*View structure for view vw_students_by_teacher */
+
+/*!50001 DROP TABLE IF EXISTS `vw_students_by_teacher` */;
+/*!50001 DROP VIEW IF EXISTS `vw_students_by_teacher` */;
+
+/*!50001 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_students_by_teacher` AS (select `a`.`ayStudentID` AS `ayStudentID`,`a`.`id` AS `id`,`b`.`rfid` AS `rfid`,`b`.`studentID` AS `studentID`,`b`.`lname` AS `lname`,`b`.`fname` AS `fname`,`b`.`mname` AS `mname`,`b`.`sex` AS `sex`,`b`.`mobileNo` AS `mobileNo`,`b`.`pMobileNo` AS `pMobileNo`,`a`.`gradeID` AS `gradeID`,`d`.`grade` AS `grade`,`a`.`sectionID` AS `sectionID`,`e`.`section` AS `section`,`a`.`academicyearID` AS `academicyearID`,`c`.`ayCode` AS `ayCode`,`c`.`ayDesc` AS `ayDesc`,`users`.`userID` AS `teacher_id`,`users`.`lname` AS `t_lname`,`users`.`fname` AS `t_fname`,`users`.`mname` AS `t_mname`,`users`.`pin` AS `pin`,`users`.`mobileNo` AS `t_mobileno` from ((((((`ay_students` `a` join `student` `b` on(`a`.`id` = `b`.`id`)) join `academicyear` `c` on(`a`.`academicyearID` = `c`.`academicyearID`)) join `grades` `d` on(`a`.`gradeID` = `d`.`gradeID`)) join `sections` `e` on(`a`.`sectionID` = `e`.`sectionID`)) join `rooms_teacher` on(`rooms_teacher`.`gradeID` = `a`.`gradeID` and `rooms_teacher`.`sectionID` = `a`.`sectionID`)) join `users` on(`rooms_teacher`.`teacherID` = `users`.`userID`))) */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

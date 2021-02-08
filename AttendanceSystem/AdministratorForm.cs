@@ -279,6 +279,18 @@ namespace AttendanceSystem
             frm.ShowDialog();
         }
 
+        private void verifiedStudentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AYStudentsList frm = new AYStudentsList();
+            frm.ShowDialog();
+        }
+
+        private void toolStripButton5_Click_1(object sender, EventArgs e)
+        {
+            SetupTeacherForm frm = new SetupTeacherForm();
+            frm.ShowDialog();
+        }
+
 
         //public void sendMessage(string mobile, string msg)
         //{

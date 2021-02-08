@@ -23,6 +23,9 @@ namespace AttendanceSystem.Teacher
         ClassStudentList student;
         ClassAcademicYear ac = new ClassAcademicYear();
 
+        public int teacher_id;
+
+
         public StudentList()
         {
             InitializeComponent();
@@ -31,8 +34,26 @@ namespace AttendanceSystem.Teacher
 
         public void LoadData()
         {
+
+            teacher_id = Properties.Settings.Default.userID;
             flx.AutoGenerateColumns = false;
-            flx.DataSource = student.StudentList(Properties.Settings.Default.userID, cmbAcademicYear.Text.Trim(), txtlname.Text, txtfname.Text);
+            // flx.DataSource = student.StudentList(Properties.Settings.Default.userID, cmbAcademicYear.Text.Trim(), txtlname.Text, txtfname.Text);
+            con = Connection.con();
+            query = "select * from (select * from vw_students_by_teacher where teacher_id=?id) as tbl1 where ayCode like ?aycode and lname like ?lname and fname like ?fname";
+            cmd = new MySqlCommand(query, con);
+            cmd.Parameters.AddWithValue("?id", teacher_id);
+            cmd.Parameters.AddWithValue("?aycode", cmbAcademicYear.Text + "%");
+            cmd.Parameters.AddWithValue("?lname", txtlname.Text + "%");
+            cmd.Parameters.AddWithValue("?fname", txtfname.Text + "%");
+            DataTable dt = new DataTable();
+            MySqlDataAdapter adptr = new MySqlDataAdapter(cmd);
+            adptr.Fill(dt);
+            adptr.Dispose();
+            cmd.Dispose();
+            con.Close();
+            con.Dispose();
+
+            flx.DataSource = dt;
         }
 
         private void StudentList_Load(object sender, EventArgs e)

@@ -52,7 +52,7 @@
             this.flx.Name = "flx";
             this.flx.Rows.DefaultSize = 20;
             this.flx.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.flx.Size = new System.Drawing.Size(589, 343);
+            this.flx.Size = new System.Drawing.Size(589, 425);
             this.flx.StyleInfo = resources.GetString("flx.StyleInfo");
             this.flx.TabIndex = 25;
             // 
@@ -77,7 +77,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(14, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 38;
             this.label1.Text = "Academic Year :";
             // 
@@ -87,7 +87,7 @@
             this.cmbAcademicYear.FormattingEnabled = true;
             this.cmbAcademicYear.Location = new System.Drawing.Point(105, 12);
             this.cmbAcademicYear.Name = "cmbAcademicYear";
-            this.cmbAcademicYear.Size = new System.Drawing.Size(196, 21);
+            this.cmbAcademicYear.Size = new System.Drawing.Size(109, 21);
             this.cmbAcademicYear.TabIndex = 37;
             // 
             // txtlname
@@ -128,7 +128,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Image = global::AttendanceSystem.Properties.Resources.edit_file_icon24x24;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(17, 444);
+            this.btnEdit.Location = new System.Drawing.Point(12, 526);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.btnEdit.Size = new System.Drawing.Size(81, 32);
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 483);
+            this.ClientSize = new System.Drawing.Size(620, 570);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtfname);

@@ -9,11 +9,17 @@ using System.Windows.Forms;
 using AttendanceSystem.Reports;
 using AttendanceSystem.Teacher;
 
+using MySql.Data.MySqlClient;
+
 namespace AttendanceSystem
 {
     public partial class TeacherMainForm : Form
     {
         Login _frm;
+
+   
+
+
 
         public TeacherMainForm(Login _frm)
         {

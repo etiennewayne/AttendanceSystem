@@ -35,9 +35,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtSstudentID = new System.Windows.Forms.TextBox();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtlname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtfname = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.flx)).BeginInit();
@@ -53,7 +53,7 @@
             this.flx.Name = "flx";
             this.flx.Rows.DefaultSize = 20;
             this.flx.SelectionMode = C1.Win.C1FlexGrid.SelectionModeEnum.Row;
-            this.flx.Size = new System.Drawing.Size(909, 404);
+            this.flx.Size = new System.Drawing.Size(1064, 404);
             this.flx.StyleInfo = resources.GetString("flx.StyleInfo");
             this.flx.TabIndex = 34;
             // 
@@ -105,13 +105,13 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // textBox1
+            // txtlname
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(83, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 21);
-            this.textBox1.TabIndex = 41;
+            this.txtlname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtlname.Location = new System.Drawing.Point(83, 41);
+            this.txtlname.Name = "txtlname";
+            this.txtlname.Size = new System.Drawing.Size(162, 21);
+            this.txtlname.TabIndex = 41;
             // 
             // label3
             // 
@@ -122,13 +122,13 @@
             this.label3.TabIndex = 40;
             this.label3.Text = "Lastname :";
             // 
-            // textBox2
+            // txtfname
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(327, 41);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(162, 21);
-            this.textBox2.TabIndex = 43;
+            this.txtfname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtfname.Location = new System.Drawing.Point(327, 41);
+            this.txtfname.Name = "txtfname";
+            this.txtfname.Size = new System.Drawing.Size(162, 21);
+            this.txtfname.TabIndex = 43;
             // 
             // label4
             // 
@@ -143,22 +143,23 @@
             // 
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(846, 26);
+            this.btnSearch.Location = new System.Drawing.Point(1004, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 36);
             this.btnSearch.TabIndex = 44;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // AYStudentsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 520);
+            this.ClientSize = new System.Drawing.Size(1089, 520);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtfname);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtlname);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.txtSstudentID);
@@ -188,9 +189,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSstudentID;
         private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtlname;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtfname;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSearch;
     }

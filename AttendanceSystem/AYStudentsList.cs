@@ -29,10 +29,12 @@ namespace AttendanceSystem
         {
             con = Connection.con();
             con.Open();
-            query = "select * from vw_aystudents where ayCode like ?aycode and ayDesc like ?aydesc";
+            query = "select * from vw_aystudents where ayCode like ?aycode and studentID like ?stdid and lname like ?lname and fname like ?fname";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?ayCode", cmbAYCode.Text + "%");
-            cmd.Parameters.AddWithValue("?aydesc", txtSstudentID.Text + "%");
+            cmd.Parameters.AddWithValue("?stdid", txtSstudentID.Text + "%");
+            cmd.Parameters.AddWithValue("?lname", txtlname.Text + "%");
+            cmd.Parameters.AddWithValue("?fname", txtfname.Text + "%");
             DataTable dt = new DataTable();
             MySqlDataAdapter adptr = new MySqlDataAdapter(cmd);
             adptr.Fill(dt);
@@ -52,6 +54,9 @@ namespace AttendanceSystem
             try
             {
                 Helper.LoadCmb("select distinct(ayCode) from academicyear order by aycode asc", cmbAYCode);
+                cmbAYCode.Text = new AttendanceSystem.Classes.ClassAcademicYear().getCurrentAYActive();
+
+
                 loaddata();
             }
             catch (Exception er)
@@ -146,6 +151,9 @@ namespace AttendanceSystem
             }
         }
 
-
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            loaddata();
+        }
     }
 }

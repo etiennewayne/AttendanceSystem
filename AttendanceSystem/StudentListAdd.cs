@@ -24,6 +24,10 @@ namespace AttendanceSystem
 
         StudentListMainform _frm;
 
+
+       // StudentList_OfTeacher _frm2;
+
+
         public int roomid;
 
 
@@ -32,6 +36,12 @@ namespace AttendanceSystem
             InitializeComponent();
             this._frm = _frm;
         }
+
+        //public StudentListAdd(StudentList_OfTeacher _frm2)
+        //{
+        //    InitializeComponent();
+        //    this._frm2 = _frm2;
+        //}
 
         private void StudentListAdd_Load(object sender, EventArgs e)
         {

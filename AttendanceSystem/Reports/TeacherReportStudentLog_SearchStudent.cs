@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using AttendanceSystem.Classes;
 
 namespace AttendanceSystem.Reports
 {
@@ -22,6 +23,8 @@ namespace AttendanceSystem.Reports
 
         AdminAttendanceMonitoringForm frm2;
 
+        ClassAcademicYear ay;
+
         private int tid;
 
 
@@ -29,6 +32,8 @@ namespace AttendanceSystem.Reports
         {
             InitializeComponent();
             this._frm = _frm;
+
+            ay = new ClassAcademicYear();
 
             this.tid = Properties.Settings.Default.userID;
            
@@ -53,7 +58,8 @@ namespace AttendanceSystem.Reports
             cmd = new MySqlCommand(query, con);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("?vtid", tid);
-            cmd.Parameters.AddWithValue("?vsearch", txtsearch.Text + "%");
+            cmd.Parameters.AddWithValue("?vaycode", cmbAY.Text);
+            cmd.Parameters.AddWithValue("?vsearch", txtsearch.Text);
             DataTable dt = new DataTable();
             MySqlDataAdapter adptr = new MySqlDataAdapter(cmd);
             adptr.Fill(dt);
@@ -74,6 +80,9 @@ namespace AttendanceSystem.Reports
 
             try
             {
+                ay.comboAcademicYear(cmbAY);
+                cmbAY.Text = new ClassAcademicYear().getCurrentAYActive();
+
                 LoadData();
             }
             catch (Exception er)
@@ -96,7 +105,7 @@ namespace AttendanceSystem.Reports
         {
             if(this.flx.Rows.Count > 1)
             {
-                string name = flx[flx.RowSel, "stdLname"] + ", " + flx[flx.RowSel, "stdFname"] + " " + flx[flx.RowSel, "stdMname"];
+                string name = flx[flx.RowSel, "lname"] + ", " + flx[flx.RowSel, "fname"] + " " + flx[flx.RowSel, "mname"];
                 int id = Convert.ToInt32(flx[flx.RowSel, "id"]);
 
                 if (_frm != null)
