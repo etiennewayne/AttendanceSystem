@@ -38,9 +38,7 @@ namespace AttendanceSystem.Reports
             query = "proc_teacher_absentstdlist";
             cmd = new MySqlCommand(query, con);
             cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Parameters.AddWithValue("?vfrom", dtFrom.Value.ToString("yyyy-MM-dd"));
-            cmd.Parameters.AddWithValue("?vto", dtTo.Value.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("?vdate", dtFrom.Value.ToString("yyyy-MM-dd"));
             cmd.Parameters.AddWithValue("?vtid",teacherid);
             cmd.Parameters.AddWithValue("?vaycode", cmbAy.Text.Trim());
             DataTable dt = new DataTable();
@@ -70,8 +68,6 @@ namespace AttendanceSystem.Reports
             //con.Dispose();
             cmbAy.Text = new ClassAcademicYear().getCurrentAYActive();
 
-
-            
 
         }
 

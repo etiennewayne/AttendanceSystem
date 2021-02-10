@@ -252,7 +252,7 @@ namespace AttendanceSystem
             else
             {
                 //SMSMainform frm = new SMSMainform(this);
-                Reports.ReportsMonitoring frm = new Reports.ReportsMonitoring();
+                Reports.GeneralReport frm = new Reports.GeneralReport();
                 frm.Show();
             }
         }

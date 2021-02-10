@@ -53,84 +53,12 @@ CREATE TABLE `attlog` (
   KEY `academicYearID` (`academicyearID`),
   CONSTRAINT `attlog_ibfk_1` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `attlog_ibfk_2` FOREIGN KEY (`academicyearID`) REFERENCES `academicyear` (`academicyearID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=401 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=404 DEFAULT CHARSET=latin1;
 
 /*Data for the table `attlog` */
 
 insert  into `attlog`(`attlogID`,`id`,`datetimeLog`,`remarks`,`timeSent`,`isSent`,`academicyearID`) values 
-(305,46,'2020-12-06 21:59:01','IN','2020-12-06 22:30:41',1,3),
-(306,55,'2020-12-06 22:50:33','IN','2020-12-06 22:50:37',1,3),
-(307,56,'2020-12-06 22:50:35','IN','2020-12-06 22:50:44',1,3),
-(308,53,'2020-12-06 22:50:37','IN','2020-12-06 22:50:57',1,3),
-(309,48,'2020-12-06 22:50:38','IN','2020-12-06 22:51:06',1,3),
-(310,50,'2020-12-06 22:50:40','IN','2020-12-06 22:51:13',1,3),
-(311,52,'2020-12-06 22:50:42','IN','2020-12-06 22:51:21',1,3),
-(312,45,'2020-12-06 22:50:43','IN','2020-12-06 22:51:31',1,3),
-(314,54,'2020-12-06 22:50:47','IN','2020-12-06 22:51:59',1,3),
-(315,46,'2020-12-06 22:50:49','IN','2020-12-06 22:52:09',1,3),
-(316,49,'2020-12-06 22:50:50','IN','2020-12-06 22:52:19',1,3),
-(317,49,'2020-12-06 23:15:49','IN','2020-12-06 23:15:59',1,3),
-(318,46,'2020-12-06 23:15:53','IN','2020-12-06 23:16:12',1,3),
-(319,45,'2020-12-06 23:16:07','OUT','2020-12-06 23:16:19',1,3),
-(320,52,'2020-12-06 23:16:11','OUT','2020-12-06 23:16:30',1,3),
-(321,50,'2020-12-06 23:16:13','OUT','2020-12-06 23:16:37',1,3),
-(322,48,'2020-12-06 23:16:15','OUT','2020-12-06 23:16:43',1,3),
-(323,53,'2020-12-06 23:16:20','OUT','2020-12-06 23:16:50',1,3),
-(324,56,'2020-12-06 23:16:22','OUT','2020-12-06 23:17:02',1,3),
-(325,55,'2020-12-06 23:16:25','OUT','2020-12-06 23:17:09',1,3),
-(326,45,'2020-12-07 09:44:53','IN','2020-12-07 09:45:03',1,3),
-(327,45,'2020-12-07 09:44:54','IN','2020-12-07 09:45:12',1,3),
-(328,45,'2020-12-07 09:44:54','IN','2020-12-07 09:45:21',1,3),
-(329,45,'2020-12-07 09:44:55','IN','2020-12-07 09:45:31',1,3),
-(330,45,'2020-12-07 09:44:56','IN','2020-12-07 09:45:40',1,3),
-(331,45,'2020-12-07 09:44:57','IN','2020-12-07 09:45:49',1,3),
-(332,45,'2020-12-07 09:44:58','IN','2020-12-07 09:46:03',1,3),
-(333,45,'2020-12-07 09:44:59','IN','2020-12-07 09:46:12',1,3),
-(334,45,'2020-12-07 09:45:00','IN','2020-12-07 09:46:21',1,3),
-(335,45,'2020-12-07 09:45:01','IN','2020-12-07 09:46:30',1,3),
-(336,45,'2020-12-07 09:45:01','IN','2020-12-07 09:46:39',1,3),
-(337,45,'2020-12-07 09:45:02','IN','2020-12-07 09:46:49',1,3),
-(338,45,'2020-12-07 09:45:03','IN','2020-12-07 09:46:58',1,3),
-(339,45,'2020-12-07 09:45:04','IN','2020-12-07 09:47:07',1,3),
-(340,45,'2020-12-07 09:45:05','IN','2020-12-07 09:47:16',1,3),
-(353,54,'2020-12-07 09:52:04','IN','2020-12-07 09:52:09',1,3),
-(354,52,'2020-12-07 07:09:48','IN','2020-12-07 10:16:38',1,3),
-(355,53,'2020-12-07 11:37:34','IN','2020-12-07 11:37:41',1,3),
-(356,48,'2020-12-07 11:37:50','IN','2020-12-07 11:37:54',1,3),
-(357,50,'2020-12-07 11:37:54','IN','2020-12-07 11:38:06',1,3),
-(358,47,'2020-12-07 11:38:36','IN','2020-12-07 11:38:39',1,3),
-(359,47,'2020-12-07 11:40:20','IN','2020-12-07 11:40:28',1,3),
-(363,56,'2020-12-07 11:56:37','IN','2020-12-07 11:57:20',1,3),
-(364,55,'2020-12-07 11:56:45','IN','2020-12-07 11:57:08',1,3),
-(365,49,'2020-12-07 11:56:47','IN','2020-12-07 11:56:57',1,3),
-(367,54,'2020-12-07 11:57:37','OUT','2020-12-07 12:12:45',1,3),
-(368,55,'2020-12-07 11:57:49','OUT','2020-12-07 12:12:54',1,3),
-(369,56,'2020-12-07 11:58:00','OUT','2020-12-07 12:13:03',1,3),
-(370,57,'2020-12-07 07:18:29','IN','2020-12-08 12:28:57',1,3),
-(377,57,'2020-12-08 07:31:41','IN','2020-12-08 12:27:42',1,3),
-(378,57,'2020-12-08 13:20:24','IN','2020-12-08 12:42:15',1,3),
-(379,57,'2020-12-08 12:30:17','IN','2020-12-08 12:30:22',1,3),
-(380,49,'2020-12-08 13:33:15','IN','2020-12-08 12:35:34',1,3),
-(381,57,'2020-12-08 13:21:06','OUT','2020-12-08 13:21:12',1,3),
-(382,57,'2020-12-08 13:21:08','OUT','2020-12-08 13:21:20',1,3),
-(383,57,'2020-12-08 13:21:10','OUT','2020-12-08 13:21:32',1,3),
-(384,57,'2020-12-08 13:21:11','OUT','2020-12-08 11:34:15',1,3),
-(385,57,'2020-12-08 13:21:12','OUT','2020-12-08 11:34:23',1,3),
-(386,57,'2020-12-08 13:21:13','OUT','2020-12-08 11:34:30',1,3),
-(387,57,'2020-12-08 13:21:14','OUT','2020-12-08 11:34:37',1,3),
-(388,57,'2020-12-08 13:21:15','OUT','2020-12-08 11:34:45',1,3),
-(389,57,'2020-12-08 13:21:16','OUT','2020-12-08 11:34:52',1,3),
-(390,57,'2020-12-08 13:21:18','OUT','2020-12-08 11:35:00',1,3),
-(391,57,'2020-12-08 13:21:19','OUT','2020-12-08 11:35:08',1,3),
-(392,57,'2020-12-08 13:21:20','OUT','2020-12-08 11:35:16',1,3),
-(393,57,'2020-12-08 13:21:21','OUT','2020-12-08 11:35:23',1,3),
-(394,57,'2020-12-08 13:21:22','OUT','2020-12-08 11:35:31',1,3),
-(395,57,'2020-12-08 13:21:23','OUT','2020-12-08 11:35:38',1,3),
-(396,57,'2020-12-08 13:21:24','OUT','2020-12-08 11:35:46',1,3),
-(397,57,'2020-12-08 13:21:26','OUT','2020-12-08 11:35:54',1,3),
-(398,57,'2020-12-08 11:34:18','OUT','2020-12-08 11:36:06',1,3),
-(399,48,'2021-01-20 19:01:33','IN',NULL,0,3),
-(400,48,'2021-01-20 19:01:42','IN',NULL,0,3);
+(403,48,'2021-02-10 07:31:05','IN','2021-02-10 09:41:29',1,3);
 
 /*Table structure for table `ay_students` */
 
@@ -152,7 +80,7 @@ CREATE TABLE `ay_students` (
   CONSTRAINT `ay_students_ibfk_3` FOREIGN KEY (`id`) REFERENCES `student` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ay_students_ibfk_4` FOREIGN KEY (`gradeID`) REFERENCES `grades` (`gradeID`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `ay_students_ibfk_5` FOREIGN KEY (`sectionID`) REFERENCES `sections` (`sectionID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ay_students` */
 
@@ -160,7 +88,8 @@ insert  into `ay_students`(`ayStudentID`,`id`,`academicyearID`,`gradeID`,`sectio
 (27,48,3,8,8,0),
 (28,57,3,8,8,0),
 (30,45,3,8,8,0),
-(31,46,3,9,11,0);
+(31,46,3,9,11,0),
+(32,49,3,8,9,0);
 
 /*Table structure for table `category` */
 
@@ -416,7 +345,7 @@ insert  into `student`(`id`,`rfid`,`studentID`,`lrn`,`lname`,`fname`,`mname`,`se
 (45,'E93DB698','168216','','BAYAWA','JATE CHRISTIAN','S','MALE',8,8,'+639187113857','+639210332488','MRS BAYAWA',NULL,0),
 (46,'A92AC598','110649','','CALUNSAG','JOMAR','B','MALE',9,11,'+639078770913','+639456943174','MR CALUNSAG',NULL,0),
 (47,'E75DCA3A','090293','','CABRERA','SIRFRED GEE','T','MALE',8,8,'+639269490729','+639487595470','MR CABREA',NULL,0),
-(48,'A9B9BF98','161955','','DUERME','CHELLA MAE','R','FEMALE',9,10,'+639120636271','+639120636272','MRS DUERME',NULL,0),
+(48,'A9B9BF98','161955','','DUERME','CHELLA MAE','R','FEMALE',9,10,'+639120636271','+639167789585','MRS DUERME',NULL,0),
 (49,'C956ED97','130287','','MONTEALTO','RUSELIE','M','FEMALE',8,8,'+639508021720','+639291992167','MRS MONTEALTO',NULL,0),
 (50,'798BBE98','160950','','ALAB','MARVILOWE','T','MALE',9,11,'+639104755453','+639152450579','MR ALAB',NULL,0),
 (52,'A97CF697','179452','','CLAVECILLA','FELMMARKRISH','M','MALE',8,8,'+639973757039','+639973757040','MR CLAVECILLA',NULL,0),
@@ -579,44 +508,34 @@ DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_attmonitoring`(vgrade varchar(30), vsection varchar(30), vaycode varchar(30), vdatefrom date, vdateto date)
 BEGIN
+SELECT 
+a.attlogID , a.id, c.studentID, c.lname, c.fname, c.mname,
+c.rfid, c.lrn, c.mobileNo,
+a.datetimeLog,
+DATE(a.datetimeLog)AS dateLog,
+a.remarks,
+a.timeSent,
+a.isSent,
+a.academicyearID,
+d.ayCode, d.ayDesc,
+e.grade, f.section,
+users.userID, users.lname AS 't_lname',
+users.fname AS 't_fname',
+users.mname AS 't_mname'
+FROM attlog a JOIN ay_students b ON a.id =b.id
+JOIN student c ON b.id = c.id
+JOIN academicyear d ON a.academicyearID = d.academicyearID
+JOIN grades e ON b.gradeID = e.gradeID
+JOIN sections f ON b.sectionID = f.sectionID
+JOIN rooms_teacher ON b.gradeID = rooms_teacher.gradeID AND b.sectionID = rooms_teacher.sectionID AND a.academicyearID = rooms_teacher.academicyearID
+JOIN users ON rooms_teacher.teacherID = users.userID
+where
+	e.grade like concat(vgrade, '%') and
+	f.section LIKE CONCAT(vsection, '%') and
+	d.ayCode LIKE CONCAT(vaycode, '%') and
+	date(a.datetimeLog) between vdatefrom and vdateto;
     
-    SELECT * FROM (
-SELECT
-  `a`.`attlogID`       AS `attlogID`,
-  `a`.`id`             AS `id`,
-  `a`.`datetimeLog`    AS `datetimeLog`,
-  CAST(`a`.`datetimeLog` AS DATE) AS `dateLog`,
-  `a`.`remarks`        AS `remarks`,
-  `a`.`timeSent`       AS `timeSent`,
-  `a`.`isSent`         AS `isSent`,
-  `b`.`rfid`           AS `rfid`,
-  `b`.`studentID`      AS `studentID`,
-  `b`.`lrn`            AS `lrn`,
-  `b`.`lname`          AS `lname`,
-  `b`.`fname`          AS `fname`,
-  `b`.`mname`          AS `mname`,
-  `b`.`sex`            AS `sex`,
-  `b`.`gradeID`        AS `gradeID`,
-  `b`.`isExempted`     AS `isExempted`,
-  `c`.`grade`          AS `grade`,
-  `e`.`section`        AS `section`,
-  `b`.`mobileNo`       AS `mobileNo`,
-  `a`.`academicYearID` AS `academicYearID`,
-  `f`.`ayCode`         AS `ayCode`,
-  f.ayDesc,
-  CAST(`a`.`datetimeLog` AS DATE) AS `dateDay`
-FROM `attlog` `a`
-      JOIN `student` `b`
-        ON `a`.`id` = `b`.`id`
-     LEFT JOIN `grades` `c`
-       ON `b`.`gradeID` = `c`.`gradeID`
-    LEFT JOIN `sections` `e`
-      ON `b`.`sectionID` = `e`.`sectionID`
-   LEFT JOIN `academicyear` `f`
-     ON `a`.`academicYearID` = `f`.`academicyearID`
-     WHERE c.grade LIKE concat(vgrade, '%') AND e.section LIKE CONCAT(vsection, '%') and f.ayCode LIKE CONCAT(vaycode, '%')) AS aa
-     WHERE aa.dateLog BETWEEN vdatefrom AND vdateto and remarks = 'ABSENT';
-    END */$$
+END */$$
 DELIMITER ;
 
 /* Procedure structure for procedure `proc_new_studentlist` */
@@ -684,48 +603,32 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`%` PROCEDURE `proc_teacher_absentstdlist`(vfrom date, vto date, vtid int, vaycode varchar(30))
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_teacher_absentstdlist`(vdate date, vtid int, vaycode varchar(50))
 BEGIN
-    
-    SELECT
-a.attlogID,
-a.id,
-b.studentID,
-b.lname AS 'stdLname',
-b.fname AS 'stdFname',
-b.mname AS 'stdMname',
-a.remarks,
-a.datetimeLog,
-DATE(a.datetimeLog) AS 'dateLog',
-a.timeSent,
-a.isSent,
-a.academicyearID,
-c.ayCode, c.ayDesc,
-t1.teacherID,
-t1.lname AS 'tLname',
-t1.fname AS 'tFname',
-t1.mname AS 'tmname'
-FROM attlog a
-JOIN student b ON a.id=b.id
-JOIN academicyear c ON a.academicyearID=c.academicyearID
-LEFT JOIN (
-	SELECT
-	a.studentlistID, a.academicYearID,
-	b.ayCode, b.ayDesc,
-	a.id, a.roomID,
-	c.roomCode, c.roomDesc, c.teacherID,
-	d.lname, d.fname, d.mname
-	FROM
-	studentlists a
-	JOIN academicyear b ON a.academicYearID = b.academicyearID
-	JOIN rooms c ON a.roomID = c.roomID
-	JOIN users d ON c.teacherID=d.userID
-) AS t1 ON a.id = t1.id AND a.academicyearID = t1.academicYearID
-WHERE a.remarks = 'ABSENT'
-AND DATE(a.datetimeLog) BETWEEN vfrom AND vto
-AND teacherID = vtid
-and c.ayCode like concat(vaycode,'%');
-    END */$$
+
+ SELECT 
+		a.ayStudentID, a.id, b.rfid, b.studentID, b.lname, b.fname, b.mname, b.sex, b.mobileNo,
+		b.pMobileNo,
+		a.gradeID, d.grade,
+		a.sectionID, e.section,
+		a.academicyearID, c.ayCode, c.ayDesc,
+		users.userID AS 'teacher_id',
+		users.lname AS  't_lname',
+		users.fname AS 't_fname',
+		users.mname AS 't_mname',
+		users.pin AS 'pin',
+		users.mobileNo AS 't_mobileno'
+		FROM
+		ay_students a JOIN student b ON a.id = b.id
+		JOIN academicyear c ON a.academicyearID = c.academicyearID
+		JOIN grades d ON a.gradeID = d.gradeID
+		JOIN sections e ON a.sectionID = e.sectionID
+		JOIN rooms_teacher ON rooms_teacher.gradeID = a.gradeID AND rooms_teacher.sectionID = a.sectionID
+		JOIN users ON rooms_teacher.teacherID = users.userID
+		WHERE a.id NOT IN (SELECT attlog.id FROM attlog WHERE DATE(attlog.datetimeLog) = vdate)
+		AND users.userID = vtid and c.ayCode = vaycode;
+
+END */$$
 DELIMITER ;
 
 /*Table structure for table `vw_attlog` */

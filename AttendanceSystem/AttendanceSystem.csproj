@@ -209,11 +209,11 @@
       <DependentUpon>ReportAttendanceMonitoring.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\ReportsMonitoring.cs">
+    <Compile Include="Reports\GeneralReport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\ReportsMonitoring.Designer.cs">
-      <DependentUpon>ReportsMonitoring.cs</DependentUpon>
+    <Compile Include="Reports\GeneralReport.Designer.cs">
+      <DependentUpon>GeneralReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportTeacherStdAbsent.cs">
       <AutoGen>True</AutoGen>
@@ -461,8 +461,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportAttendanceMonitoring.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsMonitoring.resx">
-      <DependentUpon>ReportsMonitoring.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\GeneralReport.resx">
+      <DependentUpon>GeneralReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportTeacherStdAbsent.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

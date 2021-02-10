@@ -11,7 +11,7 @@ using AttendanceSystem.Classes;
 
 namespace AttendanceSystem.Reports
 {
-    public partial class ReportsMonitoring : Form
+    public partial class GeneralReport : Form
     {
 
         MySqlConnection con;
@@ -19,7 +19,7 @@ namespace AttendanceSystem.Reports
         string query;
 
 
-        public ReportsMonitoring()
+        public GeneralReport()
         {
             InitializeComponent();
         }

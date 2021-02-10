@@ -35,11 +35,9 @@ namespace AttendanceSystem.Reports
                 con.Open();
                 query = @"select * from (SELECT
                     a.userID, a.username, a.pwd, a.pin, a.lname, a.fname, a.mname, a.sex,
-                    a.mobileNo, b.positionID, b.position
+                    a.mobileNo
                     FROM
-                    users a
-                    JOIN
-                    positions b ON a.positionID = b.positionID WHERE b.position = 'TEACHER') as tbl1 where lname like ?key or fname like ?key or mname like ?key";
+                    users a where a.role = 'TEACHER') as tbl1 where lname like ?key or fname like ?key or mname like ?key";
                 cmd = new MySqlCommand(query, con);
 
                 DataTable dt = new DataTable();

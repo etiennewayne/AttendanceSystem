@@ -106,7 +106,7 @@ namespace AttendanceSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_vfrom {
+        public CrystalDecisions.Shared.IParameterField Parameter_vtid {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -114,7 +114,7 @@ namespace AttendanceSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_vto {
+        public CrystalDecisions.Shared.IParameterField Parameter_vaycode {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -122,17 +122,9 @@ namespace AttendanceSystem.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_vtid {
+        public CrystalDecisions.Shared.IParameterField Parameter_vdate {
             get {
                 return this.DataDefinition.ParameterFields[2];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_vaycode {
-            get {
-                return this.DataDefinition.ParameterFields[3];
             }
         }
     }

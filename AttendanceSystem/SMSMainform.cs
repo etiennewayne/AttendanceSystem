@@ -376,13 +376,8 @@ namespace AttendanceSystem
             {
                 txtModemLogs.Invoke(new MethodInvoker(delegate
                 {
-                   
                     txtModemLogs.AppendText(Environment.NewLine + "System : ERROR :" + er.Message);
                 }));
-
-
-               
-               // Box.errBox(er.Message//);
 
             }
         }
@@ -557,13 +552,13 @@ namespace AttendanceSystem
 
             con = Connection.con();
             con.Open();
-            query = "select * from vw_users where pin = ?pin";
+            query = "select * from users where pin = ?pin";
             cmd = new MySqlCommand(query, con);
             cmd.Parameters.AddWithValue("?pin", pin);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-               pos = Convert.ToString(dr["position"]);
+               pos = Convert.ToString(dr["role"]);
                
                // list.Add(Convert.ToString(dr["mobileNo"]));
             }
@@ -572,7 +567,7 @@ namespace AttendanceSystem
 
             if (pos.ToLower() == "principal")
             {
-                query = "select * from vw_users where position='TEACHER'";
+                query = "select * from users where role='TEACHER'";
                 cmd = new MySqlCommand(query, con);
                // cmd.Parameters.AddWithValue("?pin", pin);
                 dr = cmd.ExecuteReader();
@@ -587,13 +582,13 @@ namespace AttendanceSystem
             if (pos.ToLower() == "teacher")
             {
 
-                query = "select * from vw_studentlists where pin = ?pin";
+                query = "select * from vw_students_by_teacher where pin = ?pin";
                 cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("?pin", pin);
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                     list.Add(Convert.ToString(dr["mobileNo"]));
+                    list.Add(Convert.ToString(dr["mobileNo"]));
                     list.Add(Convert.ToString(dr["pMobileNo"]));
                     //parentMobile.Add(Convert.ToString(dr["pMobileNo"]));
                 }

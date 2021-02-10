@@ -32,8 +32,6 @@
             this.cmbAy = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
@@ -47,8 +45,6 @@
             this.groupBox1.Controls.Add(this.cmbAy);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dtTo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dtFrom);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -63,7 +59,7 @@
             this.cmbAy.FormattingEnabled = true;
             this.cmbAy.Location = new System.Drawing.Point(75, 18);
             this.cmbAy.Name = "cmbAy";
-            this.cmbAy.Size = new System.Drawing.Size(159, 23);
+            this.cmbAy.Size = new System.Drawing.Size(123, 23);
             this.cmbAy.TabIndex = 10;
             // 
             // label5
@@ -86,38 +82,20 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(447, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "To :";
-            // 
-            // dtTo
-            // 
-            this.dtTo.CustomFormat = "yyyy-MM-dd";
-            this.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtTo.Location = new System.Drawing.Point(494, 13);
-            this.dtTo.Name = "dtTo";
-            this.dtTo.Size = new System.Drawing.Size(120, 23);
-            this.dtTo.TabIndex = 7;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(260, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 15);
+            this.label3.Size = new System.Drawing.Size(34, 15);
             this.label3.TabIndex = 6;
-            this.label3.Text = "From :";
+            this.label3.Text = "Date:";
             // 
             // dtFrom
             // 
             this.dtFrom.CustomFormat = "yyyy-MM-dd";
             this.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFrom.Location = new System.Drawing.Point(307, 15);
+            this.dtFrom.Location = new System.Drawing.Point(300, 19);
             this.dtFrom.Name = "dtFrom";
             this.dtFrom.Size = new System.Drawing.Size(120, 23);
             this.dtFrom.TabIndex = 5;
@@ -146,7 +124,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TeacherReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TeacherReport";
+            this.Text = "TeacherReport_Absent";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.TeacherReport_Load);
             this.groupBox1.ResumeLayout(false);
@@ -160,8 +138,6 @@
         private System.Windows.Forms.ComboBox cmbAy;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtTo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtFrom;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;

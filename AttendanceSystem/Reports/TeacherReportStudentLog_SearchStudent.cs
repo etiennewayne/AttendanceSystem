@@ -43,9 +43,9 @@ namespace AttendanceSystem.Reports
         {
             InitializeComponent();
             this.frm2 = frm2;
+            ay = new ClassAcademicYear();
 
             this.tid = tid;
-
         }
 
 
@@ -76,14 +76,14 @@ namespace AttendanceSystem.Reports
 
         private void TeacherReportStudentLog_SearchStudent_Load(object sender, EventArgs e)
         {
-           
+            ay.comboAcademicYear(cmbAY);
+            cmbAY.Text = new ClassAcademicYear().getCurrentAYActive();
+
+            LoadData();
 
             try
             {
-                ay.comboAcademicYear(cmbAY);
-                cmbAY.Text = new ClassAcademicYear().getCurrentAYActive();
-
-                LoadData();
+               
             }
             catch (Exception er)
             {

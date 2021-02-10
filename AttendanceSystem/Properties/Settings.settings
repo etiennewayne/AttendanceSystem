@@ -21,7 +21,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">192.168.254.10</Value>
+      <Value Profile="(Default)">localhost</Value>
     </Setting>
     <Setting Name="database" Type="System.String" Scope="User">
       <Value Profile="(Default)">attsystem</Value>

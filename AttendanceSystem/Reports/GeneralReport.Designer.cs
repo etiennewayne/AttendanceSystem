@@ -1,6 +1,6 @@
 ﻿namespace AttendanceSystem.Reports
 {
-    partial class ReportsMonitoring
+    partial class GeneralReport
     {
         /// <summary>
         /// Required designer variable.
@@ -96,7 +96,7 @@
             this.groupBox1.Controls.Add(this.cmbSection);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(864, 119);
+            this.groupBox1.Size = new System.Drawing.Size(1161, 119);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filters";
@@ -121,7 +121,7 @@
             // btnSearch
             // 
             this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSearch.Location = new System.Drawing.Point(783, 18);
+            this.btnSearch.Location = new System.Drawing.Point(1080, 18);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 29);
             this.btnSearch.TabIndex = 9;
@@ -175,22 +175,22 @@
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(12, 137);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(864, 525);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1161, 525);
             this.crystalReportViewer1.TabIndex = 6;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // ReportsMonitoring
+            // GeneralReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 674);
+            this.ClientSize = new System.Drawing.Size(1185, 674);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "ReportsMonitoring";
+            this.Name = "GeneralReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReportsMonitoring";
+            this.Text = "General Report";
             this.Load += new System.EventHandler(this.ReportsMonitoring_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
