@@ -49,6 +49,9 @@ namespace AttendanceSystem.Reports
 
             ReportAttendanceMonitoring rpt = new ReportAttendanceMonitoring();
             rpt.SetDataSource(dt);
+            rpt.SetParameterValue("datefrom", dtFrom.Value.ToString("yyyy-MM-dd"));
+            rpt.SetParameterValue("dateto", dtTo.Value.ToString("yyyy-MM-dd"));
+           
             crystalReportViewer1.ReportSource = rpt;
         }
 

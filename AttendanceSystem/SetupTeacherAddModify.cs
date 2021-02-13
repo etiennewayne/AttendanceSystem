@@ -115,24 +115,28 @@ namespace AttendanceSystem
                 return;
             }
 
-            if (isExist())
+            if (id == 0)
             {
-                Box.warnBox("Grade and section assigned by another teacher.");
-                return;
-            }
+                if (isExist())
+                {
+                    Box.warnBox("Grade and section assigned by another teacher.");
+                    return;
+                }
 
-            if (isAssignedRoom())
-            {
-                Box.warnBox("Room already used in this academic year.");
-                return;
-            }
+                if (isAssignedRoom())
+                {
+                    Box.warnBox("Room already used in this academic year.");
+                    return;
+                }
 
 
-            if (isTeacherAssigned())
-            {
-                Box.warnBox("Teacher already assigned.");
-                return;
+                if (isTeacherAssigned())
+                {
+                    Box.warnBox("Teacher already assigned.");
+                    return;
+                }
             }
+          
 
 
 

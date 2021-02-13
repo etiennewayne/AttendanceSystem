@@ -180,6 +180,7 @@
             this.toolStripButton7.Size = new System.Drawing.Size(72, 83);
             this.toolStripButton7.Text = "Phonebook";
             this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton7.Visible = false;
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
             // toolStripAcademicYear
